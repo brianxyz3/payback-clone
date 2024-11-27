@@ -4,7 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Roboto", "sans-serif"],
+        sans: ["Raleway", "Roboto"],
+      },
+      backgroundImage: {
+        testImg: 'url("../src/assets/images/testimg.jfif")',
       },
       gridTemplateColumns: {
         "70/30": "70% 10%",

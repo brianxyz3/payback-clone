@@ -6,8 +6,10 @@ function App() {
 
   return (
     <>
-      <Navbar/>
-      <Hero />
+      <header className="bg-[#112152]">
+        <Navbar />
+        <Hero />
+      </header>
     </>
   )
 }
