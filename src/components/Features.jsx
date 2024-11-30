@@ -3,7 +3,7 @@ const Features = () => {
 
     return (
         <section>
-            <div className="my-5 px-6 flex gap-3 justify-evenly flex-wrap">
+            <div className="my-5 px-6 flex gap-3 justify-evenly flex-wrap flex-lg-nowrap">
                 <div className="bg-white/50 flex flex-col text-blue-700 hover:text-white hover:bg-blue-700 justify-between w-[29rem] px-4 py-10 rounded-md">
                     <div className="">
                         <div className="text-2xl font-bold">
