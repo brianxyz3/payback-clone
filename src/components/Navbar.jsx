@@ -15,8 +15,8 @@ const Navbar = () => {
             <div className="flex justify-between md:items-center">
                 <div className="text-2xl font-bold font-sans text-blue-800"><span className="text-blue-300">r</span>ockettarefund.org</div>
                 <div className={`${isOpen ? "block h-60" : "hidden"} md:h-fit md:flex md:justify-evenly md:w-11/12`}>
-                    <div className={"w-3/4 flex"}>
-                        <ul className="flex justify-center border-1 md:border-none pt-3 text-center gap-4 absolute md:static top-20 left-0 right-0 mx-auto flex-col md:flex-row w-1/2 md:w-full">
+                    <div className={"w-full flex"}>
+                        <ul className="flex justify-center border-1 md:border-none pt-3 text-center gap-4 absolute md:static top-20 left-0 right-0 mx-auto flex-col md:flex-row w-full md:w-full">
                             <li className="border-b-2 border-gray-200 md:border-[#112152] hover:border-b-blue-300 md:hover:-mt-1">HOME</li>
                             <li className="border-b-2 border-gray-200 md:border-[#112152] hover:border-b-blue-300 md:hover:-mt-1">ABOUT US</li>
                             <li className="border-b-2 border-gray-200 md:border-[#112152] hover:border-b-blue-300 md:hover:-mt-1">FAQ</li>
