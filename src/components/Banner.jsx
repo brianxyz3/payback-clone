@@ -14,7 +14,7 @@ const Banner = () => {
 
 
     return (
-        <section className="bg-blue-700 mt-20">
+        <section className="bg-blue-700 my-20">
             <div className="bg-white slider -rotate-1" data-animated="true">
                 <ul className="slider_inner text-blue-700 font-bold text-3xl">
                     {

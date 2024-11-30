@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import ConsultationForm from './components/ConsultationForm'
 import Features from './components/Features'
 import Banner from './components/Banner'
+import About from './components/About'
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
         <Hero />
       </header>
       <ConsultationForm />
-      <Features />
       <Banner />
+      <Features />
+      <About />
     </>
   )
 }

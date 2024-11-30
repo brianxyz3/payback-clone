@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
+import Blogs from "./Blogs";
 
 const ConsultationForm = () => {
     const [age, setAge] = useState('');
@@ -13,7 +14,8 @@ const ConsultationForm = () => {
     };
 
     return (
-        <section className="bg-white lg:w-1/2 w-3/4 -mt-10 mx-auto p-8 mb-4 shadow-lg shadow-black">
+        <section>
+            <div className="bg-white lg:w-1/2 w-3/4 -mt-12 mx-auto p-8 mb-4 shadow-lg shadow-black">
             <div className="text-center mb-6">
                 <h3 className="text-3xl text-[#112152] font-bold">Start here</h3>
                 <p className="text-2xl text-gray-600">Secure a free consultation</p>
@@ -39,6 +41,8 @@ const ConsultationForm = () => {
                 </FormControl>
                 <button className="bg-yellow-400 text-gray-900 text-xl py-3 font-bold">Get a free consultation</button>
             </form>
+            </div>
+            <Blogs />
         </section>
     )
 }
