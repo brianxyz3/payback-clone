@@ -5,6 +5,8 @@ import ConsultationForm from './components/ConsultationForm'
 import Features from './components/Features'
 import Banner from './components/Banner'
 import About from './components/About'
+import Footer from './components/Footer'
+import Disclaimer from './components/Disclaimer'
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
       <Banner />
       <Features />
       <About />
+      <Footer />
+      <Disclaimer />
     </>
   )
 }
