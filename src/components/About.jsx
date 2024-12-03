@@ -4,7 +4,7 @@ import Carousel from "./Carousel"
 const About = () => {
     return (
         <section className="text-blue-700">
-            <h3 className="text-2xl text-gray-500 font-bold text-center">Some of the frauds we investigated</h3>
+            <h3 className="md:text-2xl text-lg text-gray-500 font-bold text-center">Some of the frauds we investigated</h3>
             <Carousel />
             <div className="mt-12 flex flex-wrap gap-4 px-3 justify-evenly">
                 <AboutCard title="Professionalism" image="professionalism-img.jpg" description="Everything we do, we make sure we don't compromise being highly professional. In our work environment, we keep holding our staff to a pro standard. Professionalism is one of the most important core values Money Back sets to itself as a company. We put a strong emphasis on the people we hire and the way they work to get our clients as satisfied as possible." />

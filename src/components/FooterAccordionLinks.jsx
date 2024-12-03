@@ -2,9 +2,9 @@ import { useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
-const FooterAccordionLinks = ({ title, items }) => {
+const FooterAccordionLinks = ({ title, items, link = [null] }) => {
     const [isOpen, setIsOpen] = useState(false);
-
+    let idx = -1;
 
     return (
         <div className="border-b border-white py-3 text-lg">
@@ -13,7 +13,11 @@ const FooterAccordionLinks = ({ title, items }) => {
                 {isOpen ? <ExpandLessIcon fontSize="large" /> : <ExpandMoreIcon fontSize="large" />}
             </div>
             <div className={`${isOpen ? "flex" : "hidden"} flex-col items-start  mt-3 gap-1 text-gray-400`}>
-                {items.map(item => (<a href="">{item}</a>))}
+                {items.map(item => {
+                    idx = idx + 1;
+                    return <a key={item} href={link[idx]}>{item}</a>
+                }
+                )}
             </div>
         </div>
     )

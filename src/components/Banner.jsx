@@ -1,3 +1,4 @@
+import Blogs from "./Blogs";
 import "../stylesheets/banner.css";
 import { Check } from "@mui/icons-material";
 
@@ -14,21 +15,24 @@ const Banner = () => {
 
 
     return (
-        <section className="bg-blue-700 my-20">
+        <section>
+            <Blogs />
+            <div className="bg-blue-700 my-20">
             <div className="bg-white slider -rotate-1" data-animated="true">
                 <ul className="slider_inner text-blue-700 font-bold text-3xl">
                     {
                         scamCategories.map(scam => (
-                            <li><Check fontSize="large" /> {scam}</li>
+                            <li key={scam}><Check fontSize="large" /> {scam}</li>
                         ))
                     }
                     {
                         scamCategories.map(scam => (
-                            <li aria-hidden="true"><Check fontSize="large" /> {scam}</li>
+                            <li key={`${scam}-hidden`} aria-hidden="true"><Check fontSize="large" /> {scam}</li>
                         ))
                     }
 
                 </ul>
+            </div>
             </div>
         </section>
     )

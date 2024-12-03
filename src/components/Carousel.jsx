@@ -1,6 +1,6 @@
 const Carousel = () => {
     return (
-        <div id="carouselExampleAutoplaying" className="carousel slide w-2/3 mx-auto my-3 py-1 bg-white rounded-md" data-bs-ride="carousel">
+        <div id="carouselExampleAutoplaying" className="carousel slide md:w-2/3 w-3/4 mx-auto my-3 py-1 bg-white rounded-md" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
                     <div className="flex">

@@ -1,27 +1,35 @@
-import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import ConsultationForm from './components/ConsultationForm'
-import Features from './components/Features'
-import Banner from './components/Banner'
-import About from './components/About'
-import Footer from './components/Footer'
-import Disclaimer from './components/Disclaimer'
+import { BrowserRouter, Routes, Route } from "react-router";
+import HomePage from './pages/HomePage';
+import MainLayout from './layout/MainLayout';
+import AboutPage from "./pages/AboutPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
+  const registerUser = async (newUser) => {
+    try {
+      const res = await fetch(`/api/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newUser),
+      });
+    } catch (err) {
+      return console.log(`An error occurred, ${err}`);
+    }
+  }
 
   return (
     <>
-      <header className="bg-[#112152]">
-        <Navbar />
-        <Hero />
-      </header>
-      <ConsultationForm />
-      <Banner />
-      <Features />
-      <About />
-      <Footer />
-      <Disclaimer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage registerUser={registerUser} />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

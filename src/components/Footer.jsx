@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="mt-12 text-white text-center w-full">
             <div className="bg-[#030e31] py-7 w-full flex flex-col items-center">
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-3">
                     <div className="w-[28rem] md:w-1/2 text-xl flex flex-col items-center gap-3">
                         <p>
                             Money Back Ltd., which trades as Rockettarefund, is an Israeli company No. 515711653, authorized and regulated in Israel, and operates globally.
@@ -20,7 +20,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="w-[28rem] md:w-1/2">
-                    <FooterAccordionLinks title="Useful Links" items={["Testimonials", "About Us", "Features", "FAQ"]} />
+                    <FooterAccordionLinks title="Useful Links" items={["Testimonials", "About Us", "Features", "FAQ"]} link={["/testimonial", "/about", "#features", "/faq"]} />
                     <FooterAccordionLinks title="Contact Us" items={["number"]} />
                     <FooterAccordionLinks title="Location" items={["Ha-Khilazon St 5, Ramat Gan, Israel, 5252269"]} />
                     <FooterAccordionLinks title="Our office hours(GMT)" items={["Mon, Wed - 08:00-17:00", "Tue, Thu - 10:00-19:00", "Fri - 08:00-12:00", "Sat, Sun - closed"]} />

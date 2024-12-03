@@ -1,7 +1,7 @@
 
 const Hero = () => {
     return (
-        <div className="py-8 text-white">
+        <div className="bg-[#112152] py-8 text-white">
             <div className="font-bold lg:w-1/2 w-3/4 flex flex-col items-center text-center mx-auto">
                 <h4 className="text-xl bg-blue-500 rounded-3xl px-5 py-2 my-2">Investment & Trading Scam</h4>
                 <h1 className="mb-4 text-6xl text-yellow-400">Get Your Money Back <span className="text-blue-600">From a Scam</span></h1>
