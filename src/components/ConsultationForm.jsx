@@ -45,8 +45,8 @@ const ConsultationForm = ({ registerUser }) => {
     const onSubmit = async (data) => {
         try {
             await registerUser(data);
-            navigate(0);
             toast.success("Case File Successfully Submitted");
+            navigate(0);
         } catch (err) {
             toast.error("File Submit Unsuccessful, Try Again")
         }
@@ -54,12 +54,7 @@ const ConsultationForm = ({ registerUser }) => {
     }
 
     return (
-        <section id="contact">
-            <div className="bg-white lg:w-1/2 w-3/4 mx-auto p-8 mb-4 shadow-lg shadow-black">
-            <div className="text-center mb-6">
-                <h3 className="text-3xl text-[#112152] font-bold">Start here</h3>
-                <p className="text-2xl text-gray-600">Secure a free consultation</p>
-            </div>
+
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                     <div className="md:flex gap-2 -mb-5">
                         <TextField {...register("firstName")} label="Your Name" variant="outlined" required className="w-full bg-gray-100 border-none mt-4 md:mt-0" />
@@ -104,8 +99,7 @@ const ConsultationForm = ({ registerUser }) => {
                     </div>
                 <button className="bg-yellow-400 text-gray-900 text-xl py-3 font-bold">Get a free consultation</button>
             </form>
-            </div>
-        </section>
+
     )
 }
 

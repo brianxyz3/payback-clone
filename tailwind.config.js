@@ -7,10 +7,10 @@ export default {
         sans: ["Raleway", "Roboto"],
       },
       backgroundImage: {
-        testImg: 'url("../src/assets/images/testimg.jfif")',
+        aboutImg: 'url("../src/assets/images/about-img.jpg")',
       },
       gridTemplateColumns: {
-        "70/30": "70% 10%",
+        "70/30": "60% 36%",
       },
     },
   },

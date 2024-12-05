@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage registerUser={registerUser} />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/about" element={<AboutPage registerUser={registerUser} />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
