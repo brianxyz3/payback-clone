@@ -12,7 +12,6 @@ const UserSchema = new Schema({
   },
   contactPhone: {
     type: String,
-    required: true,
   },
   contactEmail: {
     type: String,
@@ -33,7 +32,6 @@ const UserSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
   },
 });
 

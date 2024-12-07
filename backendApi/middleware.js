@@ -8,7 +8,6 @@ const sanitizeUser = (req, res, next) => {
     user.lastName = validator.escape(req.body.lastName);
     user.contactPhone = validator.escape(req.body.contactPhone);
     user.contactEmail = validator.normalizeEmail(req.body.contactEmail);
-    user.lostAmount = validator.escape(req.body.lostAmount);
     user.description = validator.escape(req.body.description);
     next();
   } catch (err) {
