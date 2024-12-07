@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import MainLayout from './layout/MainLayout';
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Faq from "./pages/Faq";
 
 function App() {
   const registerUser = async (newUser) => {
@@ -26,8 +27,9 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage registerUser={registerUser} />} />
             <Route path="/about" element={<AboutPage registerUser={registerUser} />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/faq" element={<Faq />} />
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>

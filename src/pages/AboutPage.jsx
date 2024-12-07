@@ -7,7 +7,7 @@ import AboutPageCard from "../components/AboutPageCard";
 const AboutPage = ({ registerUser }) => {
     return (
         <section className="container my-5">
-            <div className="bg-aboutImg bg-cover py-10 w-11/12 h-[45rem] mx-auto text-center">
+            <div className="bg-aboutImg bg-cover py-10 w-11/12 h-[45rem] mx-auto text-center mb-5">
                 <h1 className="text-5xl text-gray-800 mb-3">About</h1>
                 <p className="text-gray-600 text-xl w-3/4 mx-auto">
                     About Rockettarefund Consulting Your Trusted Partner in Scam and Cryptocurrency Investigations. Rockettarefund is a leading firm specializing in scam and cryptocurrency investigations. Our team of certified specialists of experienced scam investigations and cyber professionals are dedicated to helping victims of fraud just like you. We possess the expertise, resources, and determination required to challenge scammers and assist you in recovery of your assets. The Rockettarefund is a 21st century agency that implements and enforces Federal consumer financial law and ensures that markets for consumer financial products are fair, transparent, and competitive.
@@ -34,9 +34,9 @@ const AboutPage = ({ registerUser }) => {
                     </ContactUs>
                 </aside>
             </div>
-            <div className="w-11/12 mx-auto">
+            <div className="w-11/12 mx-auto mb-10">
                 <div className="text-center w-5/6 mx-auto my-4">
-                    <h3 className="text-3xl">6 Reasons Why You Should Work With Rockettarefund</h3>
+                    <h3 className="text-3xl my-3">6 Reasons Why You Should Work With Rockettarefund</h3>
                     <p className="text-gray-600">We love our job and we constantly devilop our skills to deliver better services to our clients. We welcome you to study how good we are to be sure about our professionalism.</p>
                 </div>
                 <div className="py-3">
@@ -76,11 +76,12 @@ const AboutPage = ({ registerUser }) => {
                     </div>
                 </div>
             </div>
-            <div className="w-11/12 md:w-3/5 text-center mx-auto">
+            <div className="mb-10">
+                <div className="w-11/12 md:w-3/5 text-center mx-auto mb-8">
                 <h3 className="text-3xl text-center my-3">3 Steps Towards a Better Outcome</h3>
                 <p>With our specialized team of experts, we offer cutting-edge scam investigation services that go beyond recovery, focusing on holding fraudsters accountable for their actions.</p>
             </div>
-            <div className="my-3">
+                <div className="mb-3">
                 <div className="text-gray-600">
                     <div className="bg-white flex flex-wrap flex-lg-nowrap justify-evenly gap-1 text-center w-11/12 mx-auto p-2 mb-4">
                         <AboutPageCard number="01" title="Case Evaluation & Strategy Formation" description="In our initial consultation, we assess your situation thoroughly, understanding the specifics and devising a tailored recovery plan." />
@@ -89,9 +90,12 @@ const AboutPage = ({ registerUser }) => {
                     </div>
                 </div>
             </div>
-            <div className="text-center w-2/3 mx-auto my-4">
-                <h3 className="text-3xl">Our Advantages</h3>
-                <p className="text-gray-600">We do our business in fast-changing environment and we are always on the edge as we strive to deliver the best products and services to our audience. We fight for the perfect performance and value every client and their requests.</p>
+            </div>
+            <div className="w-11/12 mx-auto mb-10">
+                <div className="text-center w-5/6 mx-auto my-4">
+                    <h3 className="text-3xl my-3">Our Advantages</h3>
+                    <p className="text-gray-600">We do our business in fast-changing environment and we are always on the edge as we strive to deliver the best products and services to our audience. We fight for the perfect performance and value every client and their requests.</p>
+                </div>
                 <div className="flex flex-wrap flex-lg-nowrap gap-2 border-b border-b-gray-300 py-3">
                     <div className="w-[28rem] flex flex-col gap-2">
                         <h2 className="text-5xl text-blue-500">15</h2>

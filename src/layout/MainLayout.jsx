@@ -4,6 +4,7 @@ import Disclaimer from "../components/Disclaimer"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
 import Copyright from "../components/Copyright";
+import Footer from "../components/Footer";
 
 
 const MainLayout = () => {
@@ -11,6 +12,7 @@ const MainLayout = () => {
         <>
             <Navbar />
             <Outlet />
+            <Footer />
             <Disclaimer />
             <Copyright />
             <ToastContainer />

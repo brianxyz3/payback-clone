@@ -1,5 +1,6 @@
+import { Link } from "react-router";
 
-const AboutCard = ({ title, image, description }) => {
+const AboutCard = ({ title, image, description, link = "/about" }) => {
     return (
         <>
             <div className="bg-white w-[26rem] lg:w-1/5 h-[41rem] flex flex-col justify-between text-center border-b-4 rounded-xl border-blue-600 hover:-mt-4">
@@ -11,7 +12,7 @@ const AboutCard = ({ title, image, description }) => {
                     </div>
                 </div>
                 <div className="mb-5">
-                    <a href="" className="text-blue-200 bg-blue-600 text-xl font-bold p-2 border border-blue-800 rounded-3xl hover:p-3 hover:border-b-2">Learn More</a>
+                    <Link to={link} className="text-blue-200 bg-blue-600 text-xl font-bold p-2 border border-blue-800 rounded-3xl hover:p-3 hover:border-b-2">Learn More</Link>
                 </div>
             </div>
         </>

@@ -3,7 +3,7 @@ import Partners from "./Partners";
 const Disclaimer = () => {
     return (
         <section>
-            <div className="bg-[#112152] text-white text-center pt-5 pb-2 border-t border-white flex flex-col items-center w-full">
+            <div className="bg-[#112152] text-white text-center pt-5 pb-3 border-t border-white flex flex-col items-center w-full">
                 <p className="text-sm">
                     Official Partners:
                 </p>
