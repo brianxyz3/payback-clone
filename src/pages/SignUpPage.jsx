@@ -153,7 +153,7 @@ const SignUpPage = ({ registerUser }) => {
                     <div className="bg-loginImg bg-bottom bg-cover rounded-r-lg md:w-6/12"></div>
                 </div>
             </main>
-            <Copyright />
+            <footer><Copyright /></footer>
         </>
     )
 }
