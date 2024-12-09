@@ -32,7 +32,9 @@ const Navbar = () => {
                     <div className="size-5 border-t-2 border-r-2 rounded-tr-md rounded-sm border-blue-600">
                         <ChatBubbleOutlineOutlinedIcon sx={{ fontSize: 28 }} className="relative right-2.5" />
                     </div>
-                    <AccountCircleOutlinedIcon sx={{ fontSize: 28 }} />
+                    <Link to="/login">
+                        <AccountCircleOutlinedIcon sx={{ fontSize: 28 }} className="hover:text-blue-500" />
+                    </Link>
                     <button className="flex p-1 md:hidden text-white bg-blue-500 rounded-md" onClick={toggleNavbar}>{isOpen ? <ClearRoundedIcon fontSize="medium" /> : <MenuRoundedIcon fontSize="medium" />}</button>
                 </div>
             </div>

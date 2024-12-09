@@ -9,6 +9,7 @@ export default {
       backgroundImage: {
         aboutImg: 'url("../src/assets/images/about-img.jpg")',
         faqImg: 'url("../src/assets/images/bubbles-img.jfif")',
+        loginImg: 'url("../src/assets/images/login-img.jpg")',
       },
       gridTemplateColumns: {
         "70/30": "60% 36%",
