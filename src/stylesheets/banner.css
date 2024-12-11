@@ -21,6 +21,9 @@
     animation: scroll 30s linear infinite;
 }
 
+.slider[data-animated=true] .slider_inner:hover {
+    animation-play-state: paused;
+}
 @keyframes scroll {
     to {
         transform: translate(calc(-50% - 0.5rem));
