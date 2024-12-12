@@ -14,7 +14,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-[#112152] px-3 text-blue-600 md:text-[#f4f4f4] py-4">
+        <nav id="top" className="bg-[#112152] px-3 text-blue-600 md:text-[#f4f4f4] py-4">
             <div className="flex justify-between md:items-center">
                 <div className="text-2xl font-bold font-sans text-blue-800"><Link to="/"><span className="text-blue-300">r</span>ockettarefund.org</Link></div>
                 <div className={`${isOpen ? "block h-60" : "hidden"} md:h-fit md:flex md:justify-evenly md:w-11/12`}>

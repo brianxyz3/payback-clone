@@ -84,7 +84,7 @@ const LoginPage = ({ loginUser }) => {
                                 <div>
                                     <FormControlLabel control={<Checkbox />} label="Remember me" />
                                 </div>
-                                <a className="md:mt-2 text-blue-400 hover:text-blue-500" href="">Forgot Password?</a>
+                                <a className="md:mt-2 text-blue-400 hover:text-blue-500 text-right" href="">Forgot Password?</a>
                             </div>
                         </div>
                         <button
