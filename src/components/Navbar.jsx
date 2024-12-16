@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+// import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+// import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
@@ -14,7 +14,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav id="top" className="bg-[#112152] px-3 text-blue-600 md:text-[#f4f4f4] py-4">
+        <>
+            <nav id="top" className="w-full fixed top-0 z-50 bg-[#112152] px-3 text-blue-600 md:text-[#f4f4f4] py-4">
             <div className="flex justify-between md:items-center">
                 <div className="text-2xl font-bold font-sans text-blue-800"><Link to="/"><span className="text-blue-300">r</span>ockettarefund.org</Link></div>
                 <div className={`${isOpen ? "block h-60" : "hidden"} md:h-fit md:flex md:justify-evenly md:w-11/12`}>
@@ -29,16 +30,33 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                    <div className="size-5 border-t-2 border-r-2 rounded-tr-md rounded-sm border-blue-600">
+                    <div className="size-5 border-t-2 border-r-2 rounded-tr-md rounded-sm border-blue-600 hover:text-blue-500 hover:border-blue-500">
                         <ChatBubbleOutlineOutlinedIcon sx={{ fontSize: 28 }} className="relative right-2.5" />
                     </div>
                     <Link to="/login">
                         <AccountCircleOutlinedIcon sx={{ fontSize: 28 }} className="hover:text-blue-500" />
                     </Link>
-                    <button className="flex p-1 md:hidden text-white bg-blue-500 rounded-md" onClick={toggleNavbar}>{isOpen ? <ClearRoundedIcon fontSize="medium" /> : <MenuRoundedIcon fontSize="medium" />}</button>
+
+                    {/* old mobile navbar collapse button */}
+                    {/* <button className="flex p-1 md:hidden text-white bg-blue-500 rounded-md" onClick={toggleNavbar}>
+                        {isOpen ?
+                            <ClearRoundedIcon fontSize="medium" />
+                            : <MenuRoundedIcon fontSize="medium" />
+                        }
+                    </button> */}
+
+                        <button className={`transition duration-500 flex p-1 size-8 justify-center items-center md:hidden text-white bg-blue-600 rounded-md hover:hover:bg-blue-500 hover:border ${isOpen ? "rotate-180" : "-rotate-180"}`} onClick={toggleNavbar}>
+                        <div className={`w-full flex flex-col ${isOpen ? "mr-1" : "gap-1"}`}>
+                            <div className={`w-6 h-1 bg-white rounded-lg transition ${isOpen && "w-7 -rotate-45 origin-center"}`}></div>
+                            <div className={`w-6 h-1 bg-white rounded-lg transition ${isOpen && "w-7 rotate-45 origin-center -mt-1"}`}></div>
+                            <div className={`w-6 h-1 bg-white rounded-lg ${isOpen && "hidden"}`}></div>
+                        </div>
+                    </button>
                 </div>
             </div>
         </nav>
+            <div className="my-20"></div>
+        </>
     )
 }
 

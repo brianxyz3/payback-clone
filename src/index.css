@@ -6,15 +6,18 @@ body {
     background-color: aliceblue;
     overflow-x: hidden;
 }
-/* .scroll-watcher {
-    scale: 1 0;
-    transform-origin: bottom;
+.scroll-watcher {
     animation: scroll-watcher linear;
-    animation-timeline: scroll();
+    animation-timeline: view();
 }
 
 @keyframes scroll-watcher {
+    from {
+            opacity: 0;
+            scale: 0;
+        }
     to {
-        scale: 1 1;
+        opacity: 1;
+            scale: 1;
     }
-} */
+}
