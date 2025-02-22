@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="mt-12 text-white text-center w-full">
             <div className="bg-[#030e31] py-7 w-full flex flex-col items-center">
                 <div className="flex justify-center mb-3">
-                    <div className="w-[28rem] md:w-1/2 text-xl flex flex-col items-center gap-3">
+                    <div className="w-full md:w-1/2 text-lg flex flex-col items-center gap-3 px-2">
                         <p>
                             Money Back Ltd., which trades as Rockettarefund, is a Canadian company No. 515711653, authorized and regulated in Canada, and operates globally.
                         </p>
@@ -19,7 +19,7 @@ const Footer = () => {
                         </p>
                     </div>
                 </div>
-                <div className="w-[28rem] md:w-1/2">
+                <div className="w-full md:w-1/2">
                     <FooterAccordionLinks title="Useful Links" items={["Home", "About Us", "Features", "FAQ"]} link={["/", "/about", "#features", "/faq"]} />
                     <FooterAccordionLinks title="Contact Us" items={["number"]} />
                     <FooterAccordionLinks title="Location" items={["330 Front St West, Toronto, ON M5V 3B7, Canada"]} />

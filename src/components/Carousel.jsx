@@ -1,42 +1,43 @@
+import "../stylesheets/carousel.css";
 const Carousel = () => {
     return (
-        <div id="carouselExampleAutoplaying" className="carousel slide md:w-2/3 w-3/4 mx-auto my-3 py-1 bg-white rounded-md" data-bs-ride="carousel">
-            <div className="carousel-inner">
-                <div className="carousel-item active">
+        <div className="carousel md:w-2/3 w-3/4 mx-auto my-3 py-1 bg-white rounded-md">
+            <div className="carousel_inner">
+                <div className="carousel_item active">
                     <div className="flex">
-                        <img src="../src/assets/images/logo-1.webp" className="d-block w-1/3" alt="..." />
-                        <img src="../src/assets/images/logo-2.webp" className="d-block w-1/3" alt="..." />
-                        <img src="../src/assets/images/logo-3.webp" className="d-block w-1/3" alt="..." />
+                        <img src="../src/assets/images/logo-1.webp" alt="..." />
+                        <img src="../src/assets/images/logo-2.webp" alt="..." />
+                        <img src="../src/assets/images/logo-3.webp" alt="..." />
                     </div>
                 </div>
-                <div className="carousel-item">
+                <div className="carousel_item">
                     <div className="flex">
-                        <img src="../src/assets/images/logo-4.webp" className="d-block w-1/3" alt="..." />
-                        <img src="../src/assets/images/logo-5.webp" className="d-block w-1/3" alt="..." />
-                        <img src="../src/assets/images/logo-6.webp" className="d-block w-1/3" alt="..." />
+                        <img src="../src/assets/images/logo-4.webp" alt="..." />
+                        <img src="../src/assets/images/logo-5.webp" alt="..." />
+                        <img src="../src/assets/images/logo-6.webp" alt="..." />
                     </div>
                 </div>
-                <div className="carousel-item">
+                <div className="carousel_item">
                     <div className="flex">
-                        <img src="../src/assets/images/logo-7.webp" className="d-block w-1/3" alt="..." />
-                        <img src="../src/assets/images/logo-8.webp" className="d-block w-1/3" alt="..." />
-                        <img src="../src/assets/images/logo-9.webp" className="d-block w-1/3" alt="..." />
+                        <img src="../src/assets/images/logo-7.webp" alt="..." />
+                        <img src="../src/assets/images/logo-8.webp" alt="..." />
+                        <img src="../src/assets/images/logo-9.webp" alt="..." />
                     </div>
                 </div>
-                <div className="carousel-item">
+                <div className="carousel_item">
                     <div className="flex justify-evenly">
-                        <img src="../src/assets/images/logo-10.webp" className="d-block w-1/3" alt="..." />
-                        <img src="../src/assets/images/logo-11.webp" className="d-block w-1/3" alt="..." />
+                        <img src="../src/assets/images/logo-10.webp" alt="..." />
+                        <img src="../src/assets/images/logo-11.webp" alt="..." />
                     </div>
                 </div>
             </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
+            <button className="carousel_control_prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span className="carousel_control_prev_icon" aria-hidden="true"></span>
+                <span className="visually_hidden">Previous</span>
             </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
+            <button className="carousel_control_next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span className="carousel_control_next_icon" aria-hidden="true"></span>
+                <span className="visually_hidden">Next</span>
             </button>
         </div>
     )

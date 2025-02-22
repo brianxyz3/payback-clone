@@ -75,18 +75,18 @@ const ConsultationForm = ({ registerUser }) => {
     return (
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-            <div className="md:flex gap-2 -mb-5">
+            <div className="flex flex-col gap-4 md:flex-row md:gap-2">
                 <div className="w-full">
-                    <TextField {...register("firstName", validateForm.firstName)} error={Boolean(errors.firstName)} label="Your Name" variant="outlined" required className="w-full bg-gray-100 border-none mt-4 md:mt-0" />
+                    <TextField {...register("firstName", validateForm.firstName)} error={Boolean(errors.firstName)} label="Your Name" variant="outlined" required className="w-full bg-gray-100 border-none md:mt-0" />
                     {errors.firstName && <span style={errorStyle}>{validateForm.firstName.required}</span>}
                 </div>
                 <div className="w-full">
-                    <TextField {...register("lastName", validateForm.lastName)} error={Boolean(errors.lastName)} label="Last Name" variant="outlined" required className="w-full bg-gray-100 border-none mt-4 md:mt-0" />
+                    <TextField {...register("lastName", validateForm.lastName)} error={Boolean(errors.lastName)} label="Last Name" variant="outlined" required className="w-full bg-gray-100 border-none md:mt-0" />
                     {errors.lastName && <span style={errorStyle}>{validateForm.lastName.required}</span>}
                 </div>
             </div>
 
-            <div className="md:flex gap-2">
+            <div className="flex flex-col gap-4 md:flex-row md:gap-2">
                 <div className="w-full">
                     <TextField {...register("contactPhone")} label="Phone Number" variant="outlined" className="w-full bg-gray-100 border-none mt-4 md:mt-0" />
                 </div>

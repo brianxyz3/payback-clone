@@ -6,10 +6,10 @@ import AboutPageCard from "../components/AboutPageCard";
 
 const AboutPage = ({ registerUser }) => {
     return (
-        <section className="container my-5">
+        <section className="container mt-20 mb-5 mx-auto">
             <div className="bg-aboutImg bg-cover py-10 w-11/12 h-[45rem] mx-auto text-center mb-5">
-                <h1 className="text-5xl text-gray-800 mb-3">About</h1>
-                <p className="text-gray-600 text-xl w-3/4 mx-auto">
+                <h1 className="text-3xl md:text-5xl text-gray-800 mb-2 md:mb-3">About</h1>
+                <p className="text-blue-500 text_shadow text-base md:text-xl w-5/6 md:w-3/4 mx-auto">
                     About Rockettarefund Consulting Your Trusted Partner in Scam and Cryptocurrency Investigations. Rockettarefund is a leading firm specializing in scam and cryptocurrency investigations. Our team of certified specialists of experienced scam investigations and cyber professionals are dedicated to helping victims of fraud just like you. We possess the expertise, resources, and determination required to challenge scammers and assist you in recovery of your assets. The Rockettarefund is a 21st century agency that implements and enforces Federal consumer financial law and ensures that markets for consumer financial products are fair, transparent, and competitive.
                 </p>
             </div>
@@ -17,7 +17,7 @@ const AboutPage = ({ registerUser }) => {
                 <h3 className="text-3xl text-center font-bold my-3">Our Investigation Services</h3>
                 <p>With our specialized team of experts, we offer cutting-edge scam investigation services that go beyond recovery, focusing on holding fraudsters accountable for their actions.</p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-70/30 w-full my-3 flex items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-70/30 w-full my-3">
                 <div className="text-gray-600">
                     <div className="bg-white text-center w-11/12 mx-auto py-2 mb-4">
                         <AboutPageCard number="01" title="Comprehensive Scam Investigation" description="Our investigative scope spans beyond cryptocurrencies to encompass all fraudulent activities, leveraging sophisticated tools and techniques to protect victimized parties." />
@@ -25,10 +25,10 @@ const AboutPage = ({ registerUser }) => {
                         <AboutPageCard number="03" title="Forensics and Fund Tracing" description="Our forensic investigations utilizes advanced techniques to uncover financial crimes, identify responsible parties, and trace misappropriated funds." />
                     </div>
                 </div>
-                <aside>
+                <aside className="flex items-center justify-center">
                     <ContactUs>
-                        <div className="bg-white mx-2 p-8 mb-4 text-center">
-                            <h3 className="text-3xl text-[#112152] font-bold">Start here</h3>
+                        <div className="bg-white mx-2 p-8 mb-4 text-center w-11/12">
+                            <h3 className="text-xl md:text-3xl mb-2 text-[#112152] font-bold">Start here</h3>
                             <ConsultationForm registerUser={registerUser} />
                         </div>
                     </ContactUs>
@@ -96,18 +96,18 @@ const AboutPage = ({ registerUser }) => {
                     <h3 className="text-3xl my-3">Our Advantages</h3>
                     <p className="text-gray-600">We do our business in fast-changing environment and we are always on the edge as we strive to deliver the best products and services to our audience. We fight for the perfect performance and value every client and their requests.</p>
                 </div>
-                <div className="flex flex-wrap flex-lg-nowrap gap-2 border-b border-b-gray-300 py-3">
-                    <div className="w-[28rem] flex flex-col gap-2">
+                <div className="flex flex-wrap flex-lg-nowrap gap-2 border-b border-b-gray-300 py-3 justify-evenly">
+                    <div className="w-[24rem] flex flex-col gap-2">
                         <h2 className="text-5xl text-blue-500">15</h2>
                         <h4 className="text-lg">Business partners</h4>
                         <p className="text-sm text-gray-600">We understand the emotional impact of falling victim to a scam. Our team provides empathetic and personalized support, guiding you through the recovery process with care and professionalism.</p>
                     </div>
-                    <div className="w-[28rem] flex flex-col gap-2">
+                    <div className="w-[24rem] flex flex-col gap-2">
                         <h2 className="text-5xl text-blue-500">250+</h2>
                         <h4 className="text-lg">Closed cases</h4>
                         <p className="text-sm text-gray-600">During our work we completed a great amount of projects and that's not the limit!</p>
                     </div>
-                    <div className="w-[28rem] flex flex-col gap-2">
+                    <div className="w-[24rem] flex flex-col gap-2">
                         <h2 className="text-5xl text-blue-500">200+</h2>
                         <h4 className="text-lg">Happy clients</h4>
                         <p className="text-sm text-gray-600">We provide our clients with exquisite round-the-clock support and meet all their needs.</p>

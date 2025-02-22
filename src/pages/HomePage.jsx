@@ -12,7 +12,7 @@ const HomePage = ({ registerUser }) => {
             <Hero />
             <main className="-mt-12">
                 <ContactUs>
-                    <div className="bg-white lg:w-1/2 w-3/4 mx-auto p-8 mb-4 shadow-lg shadow-black">
+                    <div className="bg-white lg:w-1/2 w-11/12 mx-auto py-8 px-4 mb-4 shadow-lg shadow-black md:p-8">
                         <div className="text-center mb-6">
                             <h3 className="text-3xl text-[#112152] font-bold">Start here</h3>
                             <p className="text-2xl text-gray-600">Secure a free consultation</p>

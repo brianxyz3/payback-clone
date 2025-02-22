@@ -2,23 +2,23 @@ import ContactUs from "../components/ContactUs";
 
 const Faq = () => {
     return (
-        <main className="text-gray-500">
+        <main className="text-gray-500 mt-20">
             <div>
-                <div className="bg-faqImg bg-center bg-cover rounded-2xl mt-3 mb-8 mx-auto size-96 md:w-[40rem] md:h-[28rem] lg:w-[50rem] lg:h-[32rem] text-center">
+                <div className="bg-faqImg bg-center bg-cover rounded-2xl mt-3 mb-8 mx-auto w-72 h-52 md:w-[40rem] md:h-[28rem] lg:w-[50rem] lg:h-[32rem] text-center">
                     <div className="bg-slate-200/25 size-full flex flex-col justify-center gap-2">
-                        <h1 className="text-6xl text-black font-bold">F.A.Q.</h1>
-                        <p className="text-2xl">Frequently Asked Questions</p>
+                        <h1 className="text-3xl lg:text-6xl text-black font-bold">F.A.Q.</h1>
+                        <p className="text-base lg:text-2xl">Frequently Asked Questions</p>
                     </div>
                 </div>
 
                 <div className="w-5/6 mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-40/60 text-lg flex items-center gap-3">
-                        <div className="flex flex-col gap-2 w-2/3 md:w-3/4 lg:w-full mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-40/60 text-base md:text-lg">
+                        <div className="flex flex-col gap-2 w-full md:w-3/4 lg:w-full mx-auto justify-center">
                             <h5 className="text-xl mb-2 text-black">Who are we?</h5>
                             <p>Rockettarefund Consulting specializes in investigating fraud and financial crimes. Our team of certified investigators gathers critical evidence, prepares concise reports, and provides comprehensive support for litigation, prosecution, settlement negotiations, and financial recovery.</p>
                             <p>We assist a wide range of clients, including law firms, corporations, government agencies, investors, and individuals. With a global reach, we work closely with clients both domestically and internationally.</p>
                         </div>
-                        <div className="w-2/3 md:w-3/4 lg:w-5/6 ml-auto lg:mr-0 mr-auto flex flex-col gap-4">
+                        <div className="w-full md:w-3/4 lg:w-5/6 ml-auto lg:mr-0 mr-auto flex flex-col gap-4">
                             <div className="flex flex-col gap-2">
                                 <h5 className="text-xl mb-2 text-black">Why us?</h5>
                                 <p>Rockettarefund comprises a team of professionals specializing in the recovery of funds lost online. Our primary expertise lies in identifying and retrieving your money, returning it directly to you. We are dedicated to our core objective and consistently achieve outstanding results in pursuing this goal.</p>
@@ -38,26 +38,26 @@ const Faq = () => {
                 </div>
 
                 <div className="border-y border-y-gray-300 my-10 py-20">
-                    <div className="w-5/6 mx-auto text-lg flex flex-wrap flex-lg-nowrap gap-2 justify-center lg:justify-between">
-                        <div className="w-2/3 md:w-3/4 lg:w-1/2">
+                    <div className="w-5/6 mx-auto text-base md:text-lg flex flex-wrap flex-lg-nowrap gap-2 justify-center lg:justify-between">
+                        <div className="w-full md:w-3/4 lg:w-5/12">
                             <h5 className="text-xl mb-4 text-black">What information should I provide during the consultation?</h5>
                             <p>During the consultation, it is helpful to provide any relevant documentation, transaction records, communication with the scammer, and any other evidence related to the scam. This will assist us in better understanding your case and developing a suitable strategy.</p>
                         </div>
-                        <div className="w-2/3 md:w-3/4 lg:w-1/2">
+                        <div className="w-full md:w-3/4 lg:w-5/12">
                             <h5 className="text-xl mb-4 text-black">What are the costs associated with funds recovery?</h5>
                             <p>We offer various fee structures, including contingency-based arrangements, where our fees are determined as a percentage of the recovered funds. During the consultation, we will discuss the fee structure and ensure transparency about the costs involved.</p>
                         </div>
                     </div>
                     <div className="flex justify-center mt-10">
                         <ContactUs>
-                            <a href="/"><h2 className="text-4xl hover:text-black hover:font-bold hover:-mt-2 hover:transition-all">Get Started Now!</h2></a>
+                            <a href="/"><h2 className="text-4xl hover:scale-125 hover:-translate-y-2 duration-200">Get Started Now!</h2></a>
                         </ContactUs>
                     </div>
                 </div>
 
                 <div className="w-5/6 mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-40/60 text-lg flex items-center gap-3">
-                        <div className="w-2/3 md:w-3/4 lg:w-full flex flex-col gap-4 mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-40/60 text-base md:text-lg">
+                        <div className="w-full md:w-3/4 lg:w-full flex flex-col gap-4 mx-auto">
                             <div className="flex flex-col gap-2">
                                 <h5 className="text-xl mb-2 text-black">What our company does?</h5>
                                 <p>Our primary objective is to deliver results by directly engaging with relevant entities and financial institutions to ensure the return of your scammed funds. We handle the entire communication and refund process on your behalf, striving to streamline the recovery procedure for you.</p>
@@ -77,7 +77,7 @@ const Faq = () => {
                         </div>
 
 
-                        <div className="w-2/3 md:w-3/4 lg:w-5/6 ml-auto lg:mr-0 mr-auto flex flex-col gap-4">
+                        <div className="w-full md:w-3/4 lg:w-5/6 ml-auto lg:mr-0 mr-auto flex flex-col justify-center gap-4">
                             <div className="flex flex-col gap-2">
                                 <h5 className="text-xl mb-2 text-black">What if I have already reported the scam to the authorities?</h5>
                                 <p>Reporting the scam to the authorities is an essential step. Our team can work in conjunction with law enforcement agencies to support the legal process and enhance your chances of fund recovery.</p>

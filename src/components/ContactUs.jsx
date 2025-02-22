@@ -1,7 +1,7 @@
 
 const ContactUs = ({ children }) => {
     return (
-        <section id="contact">
+        <section>
             {children}
         </section>)
 }

@@ -2,13 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+}
+
+/* GENERAL STYLE */
 body {
     background-color: aliceblue;
     overflow-x: hidden;
 }
+.text_shadow {
+    text-shadow: 1px 0, 0 0 1px #fff;
+}
 .scroll-watcher {
+@supports(animation-timeline: view()) {
     animation: scroll-watcher linear;
     animation-timeline: view();
+}
 }
 
 @keyframes scroll-watcher {
