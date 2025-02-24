@@ -13,10 +13,10 @@ const FooterAccordionLinks = ({ title, items, link = [null] }) => {
                 <h5 className="text-lg font-bold lg:text-2xl">{title}</h5>
                 {isOpen ? <ExpandLessIcon fontSize="large" /> : <ExpandMoreIcon fontSize="large" />}
             </div>
-            <div className={`${isOpen ? "flex" : "hidden"} flex-col items-start  mt-3 gap-1 text-gray-400`}>
+            <div className={`${!isOpen && "opacity-0 scale-y-0 h-0"} flex flex-col scale-100 duration-75 items-start px-3 mt-3 gap-1 text-gray-400`}>
                 {items.map(item => {
                     idx += 1;
-                    return <Link key={item} href={link[idx]}>{item}</Link>
+                    return <Link key={item} to={link[idx]}>{item}</Link>
                 }
                 )}
             </div>

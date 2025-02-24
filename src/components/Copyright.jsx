@@ -5,7 +5,7 @@ const Copyright = () => {
     return (
         <div className="bg-[#112152] px-5">
             <ScrollWatcher>
-                <KeyboardArrowUp className="text-blue-500" fontSize="large" />
+                <KeyboardArrowUp className="text-blue-500" fontSize="medium" />
             </ScrollWatcher>
             <div className="border-t py-1 text-center text-white">
                 &copy; 2024 Rockettarefund.org

@@ -21,7 +21,7 @@ const Disclaimer = () => {
                         The Company cannot accept prohibited payment methods.
                     </p>
                     <p>
-                        Every payment received by yhe company is secure under the PCI-DSS protocol.
+                        Every payment received by the company is secure under the PCI-DSS protocol.
                     </p>
                 </div>
             </div>
