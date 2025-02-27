@@ -4,7 +4,7 @@ import ContactUs from "../components/ContactUs";
 import AboutPageCard from "../components/AboutPageCard";
 
 
-const AboutPage = ({ registerUser }) => {
+const AboutPage = () => {
     return (
         <section className="container mt-20 mb-5 mx-auto">
             <div className="bgAboutImg bg-cover py-10 w-11/12 h-[45rem] mx-auto text-center mb-5">
@@ -29,7 +29,7 @@ const AboutPage = ({ registerUser }) => {
                     <ContactUs>
                         <div className="bg-white mx-2 p-8 mb-4 text-center w-11/12">
                             <h3 className="text-xl md:text-3xl mb-2 text-[#112152] font-bold">Start here</h3>
-                            <ConsultationForm registerUser={registerUser} />
+                            <ConsultationForm />
                         </div>
                     </ContactUs>
                 </aside>

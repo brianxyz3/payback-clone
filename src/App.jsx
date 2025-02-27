@@ -9,27 +9,13 @@ import SignUpPage from "./pages/SignUpPage";
 import AuthPageLayout from "./layout/AuthPageLayout";
 
 function App() {
-  const registerUser = async (newUser) => {
-    try {
-      const res = await fetch(`/api/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newUser),
-      });
-    } catch (err) {
-      return console.log(`An error occurred, ${err}`);
-    }
-  }
-
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route index element={<HomePage registerUser={registerUser} />} />
-            <Route path="/about" element={<AboutPage registerUser={registerUser} />} />
+            <Route index element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/faq" element={<Faq />} />
           </Route>
           <Route element={<AuthPageLayout />}>

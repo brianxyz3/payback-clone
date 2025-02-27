@@ -6,7 +6,7 @@ import { IconButton, OutlinedInput, InputLabel, InputAdornment, FormControl } fr
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { toast } from "react-toastify";
 
-const LoginPage = ({ loginUser }) => {
+const LoginPage = () => {
     const {
         handleSubmit,
         register,

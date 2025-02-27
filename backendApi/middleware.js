@@ -1,18 +1,18 @@
 import validator from "validator";
 import ExpressError from "./utilities/ExpressError.js";
 
-const sanitizeUser = (req, res, next) => {
+const sanitizeCaseFile = (req, res, next) => {
   try {
-    const user = req.body;
-    user.firstName = validator.escape(req.body.firstName);
-    user.lastName = validator.escape(req.body.lastName);
-    user.contactPhone = validator.escape(req.body.contactPhone);
-    user.contactEmail = validator.normalizeEmail(req.body.contactEmail);
-    user.description = validator.escape(req.body.description);
+    const caseFile = req.body;
+    caseFile.firstName = validator.escape(req.body.firstName);
+    caseFile.lastName = validator.escape(req.body.lastName);
+    caseFile.contactPhone = validator.escape(req.body.contactPhone);
+    caseFile.contactEmail = validator.normalizeEmail(req.body.contactEmail);
+    caseFile.description = validator.escape(req.body.description);
     next();
   } catch (err) {
     throw new ExpressError(400, err);
   }
 };
 
-export default sanitizeUser;
+export { sanitizeCaseFile };

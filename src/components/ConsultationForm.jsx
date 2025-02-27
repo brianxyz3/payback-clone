@@ -7,6 +7,7 @@ import InputLabel from "@mui/material/InputLabel";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { submitCaseFile } from "../apiController"
 
 
 
@@ -32,7 +33,7 @@ const lostAmount = [
     "Over $150,000",
 ];
 
-const ConsultationForm = ({ registerUser }) => {
+const ConsultationForm = () => {
     const {
         register,
         handleSubmit,
@@ -60,14 +61,16 @@ const ConsultationForm = ({ registerUser }) => {
 
     const onSubmit = async (data) => {
         try {
-            // await registerUser(data);
-            toast.success("Case File Successfully Submitted");
+            const res = await submitCaseFile(data);
+            res.status == 201 ?
+                toast.success("Case File Successfully Submitted")
+                : toast.error("Case File Submit Unsuccessful, Try Again");
             const timer = setTimeout(() => {
                 navigate(0);
             }, 4000);
             return () => clearTimeout(timer);
         } catch (err) {
-            toast.error("File Submit Unsuccessful, Try Again")
+            toast.error("Case File Submit Unsuccessful, Try Again");
         }
 
     }
@@ -128,7 +131,7 @@ const ConsultationForm = ({ registerUser }) => {
                     defaultValue=""
                 />
             </div>
-            <button className="bg-yellow-400 text-gray-900 text-xl py-3 font-bold">Get a free consultation</button>
+            <button className="bg-yellow-400 text-gray-900 text-xl py-3 font-bold hover:scale-95 hover:rounded-lg hover:translate-y-2 hover:shadow-md duration-200">Get a free consultation</button>
         </form>
 
     )

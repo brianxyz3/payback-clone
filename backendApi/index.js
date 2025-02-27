@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-import User from "./user.js";
-import sanitizeUser from "./middleware.js";
+import UserCaseFile from "./models/userCaseFile.js";
+import { sanitizeCaseFile } from "./middleware.js";
 import catchAsync from "./utilities/catchAsync.js";
 
 const dbUrl = "mongodb://localhost:27017/payback";
@@ -19,8 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post(
-  "/register",
-  sanitizeUser,
+  "/newCase",
+  sanitizeCaseFile,
   catchAsync(async (req, res) => {
     try {
       const {
@@ -31,7 +31,7 @@ app.post(
         lostAmount,
         description,
       } = req.body;
-      const user = new User({
+      const newCaseFile = new UserCaseFile({
         firstName,
         lastName,
         contactPhone,
@@ -39,13 +39,15 @@ app.post(
         lostAmount,
         description,
       });
-      const registeredUser = await user.save();
-      console.log(registeredUser);
-      res.status(201).json(registeredUser);
+      const caseFile = await newCaseFile.save();
+      console.log(caseFile);
+      res.status(201).json(caseFile);
     } catch (err) {
-      console.log("An error occurred" + err);
+      console.log("An error occurred, " + err);
+      res.status(err.status).json(err);
     }
   })
 );
+
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

@@ -10,12 +10,8 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Navbar from "../components/Navbar";
-import Copyright from "../components/Copyright";
-import { loginImg } from "../assets/images";
-// import logo from "../assets/images/logo.png";
 
-const SignUpPage = ({ registerUser }) => {
+const SignUpPage = () => {
     const navigate = useNavigate();
     const {
         register,

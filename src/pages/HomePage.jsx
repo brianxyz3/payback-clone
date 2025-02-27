@@ -6,7 +6,7 @@ import About from "../components/About"
 import ContactUs from "../components/ContactUs"
 
 
-const HomePage = ({ registerUser }) => {
+const HomePage = () => {
     return (
         <>
             <Hero />
@@ -17,7 +17,7 @@ const HomePage = ({ registerUser }) => {
                             <h3 className="text-3xl text-[#112152] font-bold">Start here</h3>
                             <p className="text-2xl text-gray-600">Secure a free consultation</p>
                         </div>
-                        <ConsultationForm registerUser={registerUser} />
+                        <ConsultationForm />
                     </div>
                 </ContactUs>
                 <Banner />
