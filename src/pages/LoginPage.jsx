@@ -5,8 +5,6 @@ import { TextField, FormControlLabel, Checkbox } from "@mui/material";
 import { IconButton, OutlinedInput, InputLabel, InputAdornment, FormControl } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { toast } from "react-toastify";
-import Navbar from "../components/Navbar";
-import Copyright from "../components/Copyright";
 
 const LoginPage = ({ loginUser }) => {
     const {
@@ -39,12 +37,11 @@ const LoginPage = ({ loginUser }) => {
 
 
     return (<>
-        <Navbar />
-        <main>
-            <div className="flex justify-center md:justify-end border rounded-lg m-7">
-                <div className="w-10/12 md:w-5/12 p-12  my-12">
+        <main className="h-dvh flex flex-col justify-center">
+            <div className="flex items-center justify-center md:justify-end border border-gray-400 rounded-lg mx-2 sm:mx-5 md:mx-8">
+                <div className="w-10/12 md:w-5/12 py-12 lg:py-4 lg:m-8 xl:m-12">
                     <div className="mb-9">
-                        <h3 className="font-bold text-2xl text-slate-900 mb-2">Sign in to your account</h3>
+                        <h3 className="font-bold text-2xl text-slate-900 mb-2 lg:text-3xl">Sign in to your account</h3>
                         <p className="text-slate-600">Not a member? <Link className="md:mt-2 text-blue-400 hover:text-blue-500" to="/signup">Sign Up</Link></p>
                     </div>
                     <form onSubmit={handleSubmit(handleLogin)}>
@@ -88,17 +85,16 @@ const LoginPage = ({ loginUser }) => {
                             </div>
                         </div>
                         <button
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md w-full focus:outline-none focus:shadow-outline"
+                            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md w-full focus:outline-none focus:shadow-outline hover:scale-105 duration-100"
                             type="submit"
                         >
                             Sign Up
                         </button>
                     </form>
                 </div>
-                <div className="bg-loginImg bg-bottom bg-cover rounded-r-lg md:w-6/12"></div>
+                <div className="bgLoginImg bg-cover bg-bottom h-full hidden md:flex rounded-r-lg md:w-6/12 lg:bg-center"></div>
             </div>
         </main>
-        <footer><Copyright /></footer >
     </>
     )
 }

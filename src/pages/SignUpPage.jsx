@@ -12,6 +12,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Navbar from "../components/Navbar";
 import Copyright from "../components/Copyright";
+import { loginImg } from "../assets/images";
 // import logo from "../assets/images/logo.png";
 
 const SignUpPage = ({ registerUser }) => {
@@ -77,13 +78,12 @@ const SignUpPage = ({ registerUser }) => {
 
     return (
         <>
-            <Navbar />
-            <main>
-                <div className="flex justify-center md:justify-end border rounded-lg m-7">
-                    <div className="w-10/12 md:w-5/12 p-12">
-                        <div className="mb-9">
-                            <h3 className="font-bold text-2xl text-slate-900 mb-2">Sign up to join us</h3>
-                            <p className="text-slate-6s00">Already a member? <Link className="md:mt-2 text-blue-400 hover:text-blue-500" to="/login">Login</Link></p>
+            <main className="flex flex-col justify-center h-dvh mt-20 mb-5 md:mt-24 md:mb-2">
+                <div className="flex items-center justify-center md:justify-end border border-gray-400 rounded-lg mx-2 sm:mx-5 md:mx-8">
+                    <div className="w-10/12 md:w-5/12 mt-4 mb-6 mx-2 md:mx-8 md:my-2 lg:mx-12">
+                        <div className="mb-8">
+                            <h3 className="font-bold text-2xl lg:text-3xl text-slate-900 mb-2">Sign up to join us</h3>
+                            <p className="text-slate-600">Already a member? <Link className="md:mt-2 text-blue-400 hover:text-blue-500" to="/login">Login</Link></p>
                         </div>
                         <form onSubmit={handleSubmit(handleRegister)} >
                             <div className="flex flex-col gap-4">
@@ -143,17 +143,16 @@ const SignUpPage = ({ registerUser }) => {
                                 </div>
                             </div>
                             <button
-                                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md w-full focus:outline-none focus:shadow-outline"
+                                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md w-full focus:outline-none focus:shadow-outline hover:scale-105 duration-100"
                                 type="submit"
                             >
                                 Sign Up
                             </button>
                         </form>
                     </div>
-                    <div className="bg-loginImg bg-bottom bg-cover rounded-r-lg md:w-6/12"></div>
+                    <div className="bgLoginImg bg-cover bg-center hidden md:flex rounded-r-lg md:w-1/2 min-h-full"></div>
                 </div>
             </main>
-            <footer><Copyright /></footer>
         </>
     )
 }
