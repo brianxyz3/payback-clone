@@ -6,6 +6,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Faq from "./pages/Faq";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
+import AuthPageLayout from "./layout/AuthPageLayout";
 
 function App() {
   const registerUser = async (newUser) => {
@@ -31,8 +32,10 @@ function App() {
             <Route path="/about" element={<AboutPage registerUser={registerUser} />} />
             <Route path="/faq" element={<Faq />} />
           </Route>
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route element={<AuthPageLayout />}>
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

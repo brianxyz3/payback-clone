@@ -7,7 +7,7 @@ const Copyright = () => {
             <ScrollWatcher>
                 <KeyboardArrowUp className="text-blue-500" fontSize="medium" />
             </ScrollWatcher>
-            <div className="border-t py-1 text-center text-white">
+            <div className="border-t py-1 text-xs text-center text-white">
                 &copy; 2024 Rockettarefund.org
             </div>
         </div>

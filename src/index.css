@@ -21,6 +21,17 @@ body {
 .text_shadow {
     text-shadow: 1px 0, 0 0 1px #fff;
 }
+.bgAboutImg {
+    background-image: url("./assets/images/about-img.jpg");
+}
+
+.bgFaqImg {
+    background-image: url("./assets/images/bubbles-img.jpg");
+}
+
+.bgLoginImg {
+    background-image: url("./assets/images/login-img.jpg");
+}
 .scroll-watcher {
 @supports(animation-timeline: view()) {
     animation: scroll-watcher linear;

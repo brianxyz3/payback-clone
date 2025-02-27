@@ -1,3 +1,4 @@
+import { logoImg1, logoImg10, logoImg11, logoImg2, logoImg3, logoImg4, logoImg5, logoImg6, logoImg7, logoImg8, logoImg9 } from "../assets/images";
 import "../stylesheets/carousel.css";
 
 const Carousel = () => {
@@ -6,29 +7,29 @@ const Carousel = () => {
             <div className="carousel_inner flex">
                 <div className="carousel_item" id="1">
                     <div className="flex">
-                        <img src="../src/assets/images/logo-1.webp" alt="..." />
-                        <img src="../src/assets/images/logo-2.webp" alt="..." />
-                        <img src="../src/assets/images/logo-3.webp" alt="..." />
+                        <img src={logoImg1} alt="..." />
+                        <img src={logoImg2} alt="..." />
+                        <img src={logoImg3} alt="..." />
                     </div>
                 </div>
                 <div className="carousel_item" id="2">
                     <div className="flex">
-                        <img src="../src/assets/images/logo-4.webp" alt="..." />
-                        <img src="../src/assets/images/logo-5.webp" alt="..." />
-                        <img src="../src/assets/images/logo-6.webp" alt="..." />
+                        <img src={logoImg4} alt="..." />
+                        <img src={logoImg5} alt="..." />
+                        <img src={logoImg6} alt="..." />
                     </div>
                 </div>
                 <div className="carousel_item" id="3">
                     <div className="flex">
-                        <img src="../src/assets/images/logo-7.webp" alt="..." />
-                        <img src="../src/assets/images/logo-8.webp" alt="..." />
-                        <img src="../src/assets/images/logo-9.webp" alt="..." />
+                        <img src={logoImg7} alt="..." />
+                        <img src={logoImg8} alt="..." />
+                        <img src={logoImg9} alt="..." />
                     </div>
                 </div>
                 <div className="carousel_item" id="4">
                     <div className="flex justify-evenly">
-                        <img src="../src/assets/images/logo-10.webp" alt="..." />
-                        <img src="../src/assets/images/logo-11.webp" alt="..." />
+                        <img src={logoImg10} alt="..." />
+                        <img src={logoImg11} alt="..." />
                     </div>
                 </div>
                 <div className="carousel_nav">

@@ -7,7 +7,7 @@ import AboutPageCard from "../components/AboutPageCard";
 const AboutPage = ({ registerUser }) => {
     return (
         <section className="container mt-20 mb-5 mx-auto">
-            <div className="bg-aboutImg bg-cover py-10 w-11/12 h-[45rem] mx-auto text-center mb-5">
+            <div className="bgAboutImg bg-cover py-10 w-11/12 h-[45rem] mx-auto text-center mb-5">
                 <h1 className="text-3xl md:text-5xl text-gray-800 mb-2 md:mb-3">About</h1>
                 <p className="text-blue-500 text_shadow text-base md:text-xl w-5/6 md:w-3/4 mx-auto">
                     About Rockettarefund Consulting Your Trusted Partner in Scam and Cryptocurrency Investigations. Rockettarefund is a leading firm specializing in scam and cryptocurrency investigations. Our team of certified specialists of experienced scam investigations and cyber professionals are dedicated to helping victims of fraud just like you. We possess the expertise, resources, and determination required to challenge scammers and assist you in recovery of your assets. The Rockettarefund is a 21st century agency that implements and enforces Federal consumer financial law and ensures that markets for consumer financial products are fair, transparent, and competitive.

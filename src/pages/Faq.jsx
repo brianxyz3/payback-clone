@@ -4,7 +4,7 @@ const Faq = () => {
     return (
         <main className="text-gray-500 mt-20">
             <div>
-                <div className="bg-faqImg bg-center bg-cover rounded-2xl mt-3 mb-8 mx-auto w-72 h-52 md:w-[40rem] md:h-[28rem] lg:w-[50rem] lg:h-[32rem] text-center">
+                <div className="bgFaqImg bg-center bg-cover rounded-2xl mt-3 mb-8 mx-auto w-72 h-52 md:w-[40rem] md:h-[28rem] lg:w-[50rem] lg:h-[32rem] text-center">
                     <div className="bg-slate-200/25 size-full flex flex-col justify-center gap-2">
                         <h1 className="text-3xl lg:text-6xl text-black font-bold">F.A.Q.</h1>
                         <p className="text-base lg:text-2xl">Frequently Asked Questions</p>

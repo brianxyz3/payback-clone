@@ -8,8 +8,8 @@ const FooterAccordionLinks = ({ title, items, link = [null] }) => {
     let idx = -1;
 
     return (
-        <div className="border-b border-white py-3 text-sm lg:text-lg">
-            <div className="flex flex-nowrap justify-between hover:cursor-pointer px-3" onClick={() => { setIsOpen(!isOpen) }}>
+        <div className="border-b border-white pt-3 text-sm lg:text-lg">
+            <div className="flex flex-nowrap items-baseline justify-between hover:cursor-pointer px-3" onClick={() => { setIsOpen(!isOpen) }}>
                 <h5 className="text-lg font-bold lg:text-2xl">{title}</h5>
                 {isOpen ? <ExpandLessIcon fontSize="large" /> : <ExpandMoreIcon fontSize="large" />}
             </div>

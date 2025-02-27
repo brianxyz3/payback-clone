@@ -33,7 +33,7 @@ const Navbar = () => {
                     <Link to="/"><div className="text-xl font-bold font-sans text-blue-800 md:text-2xl"><span className="text-blue-300">r</span>ockettarefund.org</div></Link>
                     <div className={`${isOpen ? "h-52" : "h-0 opacity-0 scale-0"} md:opacity-100 md:scale-100 md:h-fit md:flex md:justify-evenly md:w-11/12 duration-150`}>
                         <div className={"w-full flex"}>
-                            <div className="flex justify-center border-1 md:border-none pt-3 text-center gap-4 absolute md:static top-20 left-0 right-0 mx-auto flex-col md:flex-row w-full md:w-full">
+                            <div className="w-1/2 flex justify-center border-1 md:border-none pt-3 text-center gap-4 absolute md:static top-20 left-0 right-0 mx-auto flex-col md:flex-row md:w-full">
                                 {navItems.map((item, idx) => (
                                     <Link
                                         key={idx}
