@@ -7,7 +7,7 @@ import InputLabel from "@mui/material/InputLabel";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { submitCaseFile } from "../apiController"
+import { submitCaseFile } from "../controller/apiController"
 
 
 
@@ -62,6 +62,7 @@ const ConsultationForm = () => {
     const onSubmit = async (data) => {
         try {
             const res = await submitCaseFile(data);
+            console.log(res);
             res.status == 201 ?
                 toast.success("Case File Successfully Submitted")
                 : toast.error("Case File Submit Unsuccessful, Try Again");

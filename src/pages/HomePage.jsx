@@ -7,6 +7,7 @@ import ContactUs from "../components/ContactUs"
 
 
 const HomePage = () => {
+
     return (
         <>
             <Hero />

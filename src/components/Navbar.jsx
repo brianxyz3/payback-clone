@@ -3,6 +3,7 @@ import { Link } from "react-router";
 // import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 // import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { Login } from "@mui/icons-material";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -46,9 +47,15 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex gap-4">
-                    <Link to="/login">
-                            <AccountCircleOutlinedIcon sx={{ fontSize: 32 }} className="hover:text-blue-500" />
-                    </Link>
+                        {
+                            true ?
+                                <Link to="/login">
+                                    <Login sx={{ fontSize: 32 }} className="hover:text-blue-500" />
+                                </Link>
+                                : <Link to="/login">
+                                    <AccountCircleOutlinedIcon sx={{ fontSize: 32 }} className="hover:text-blue-500" />
+                                </Link>
+                        }
 
                     {/* old mobile navbar collapse button */}
                     {/* <button className="flex p-1 md:hidden text-white bg-blue-500 rounded-md" onClick={toggleNavbar}>

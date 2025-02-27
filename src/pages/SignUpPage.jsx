@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
@@ -10,9 +10,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { signUpWithEmailAndPassword } from "../controller/authController";
 
 const SignUpPage = () => {
     const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -53,17 +55,15 @@ const SignUpPage = () => {
     const handleRegister = async (data) => {
         try {
             if (data.password === data.confirmPassword) {
-                const user = { ...data, username: data.email };
-                // const newUser = await registerUser(user);
+                const user = { ...data };
+                const newUser = signUpWithEmailAndPassword(user);
+
                 if (newUser.token) {
-                    localStorage.setItem("token", newUser.token);
-                    localStorage.setItem("userId", newUser.id);
-                    navigate("/jobs");
+                    navigate("/");
                     toast.success("User Successfully Registered");
                 }
             } else {
                 toast.error("Password does not match");
-                return navigate("/register");
             }
         } catch (err) {
             toast.error("Something Went Wrong. Try Again");

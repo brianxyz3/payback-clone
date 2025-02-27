@@ -5,6 +5,7 @@ import { TextField, FormControlLabel, Checkbox } from "@mui/material";
 import { IconButton, OutlinedInput, InputLabel, InputAdornment, FormControl } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { toast } from "react-toastify";
+import { loginUser } from "../controller/apiController";
 
 const LoginPage = () => {
     const {
