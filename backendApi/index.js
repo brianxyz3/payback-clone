@@ -81,8 +81,7 @@ app.post(
       const token = generateToken(registeredUser);
       res.status(201).json({
         token,
-        email: registeredUser.email,
-        id: registeredUser._id,
+        user: { email: registeredUser.email, id: registeredUser._id },
       });
     } catch (err) {
       console.log("An error occurred, " + err);

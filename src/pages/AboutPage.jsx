@@ -27,7 +27,7 @@ const AboutPage = () => {
                 </div>
                 <aside className="flex items-center justify-center">
                     <ContactUs>
-                        <div className="bg-white mx-2 p-8 mb-4 text-center w-11/12">
+                        <div className="bg-white p-8 mb-4 text-center w-full md:mx-2 lg:w-11/12">
                             <h3 className="text-xl md:text-3xl mb-2 text-[#112152] font-bold">Start here</h3>
                             <ConsultationForm />
                         </div>

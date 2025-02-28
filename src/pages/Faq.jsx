@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import ContactUs from "../components/ContactUs";
 
 const Faq = () => {
@@ -50,7 +51,7 @@ const Faq = () => {
                     </div>
                     <div className="flex justify-center mt-10">
                         <ContactUs>
-                            <a href="/"><h2 className="text-4xl hover:scale-125 hover:-translate-y-2 duration-200">Get Started Now!</h2></a>
+                            <Link to="/"><h2 className="text-4xl hover:scale-125 hover:-translate-y-2 duration-200">Get Started Now!</h2></Link>
                         </ContactUs>
                     </div>
                 </div>

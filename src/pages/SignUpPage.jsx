@@ -56,11 +56,11 @@ const SignUpPage = () => {
         try {
             if (data.password === data.confirmPassword) {
                 const user = { ...data };
-                const newUser = signUpWithEmailAndPassword(user);
+                const newUser = await signUpWithEmailAndPassword(user);
 
                 if (newUser.token) {
-                    navigate("/");
                     toast.success("User Successfully Registered");
+                    setTimeout(() => (navigate(0)), 3000)
                 }
             } else {
                 toast.error("Password does not match");
@@ -68,8 +68,6 @@ const SignUpPage = () => {
         } catch (err) {
             toast.error("Something Went Wrong. Try Again");
         }
-
-
     }
 
     return (

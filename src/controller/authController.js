@@ -1,12 +1,20 @@
-import { registerUser } from "../controller/apiController";
+import { registerUser, loginUser } from "../controller/apiController";
 
 const aDay = 24 * 60 * 60 * 1000;
 
 const signUpWithEmailAndPassword = async (details) => {
   const newUser = await registerUser(details);
-  return initializeUser(newUser);
+  initializeUser(newUser);
+  return newUser;
 };
 
+const logInWithEmailAndPassword = async (details) => {
+  const user = await loginUser(details);
+  initializeUser(user);
+  return user;
+};
+
+const signOut = () => initializeUser(null);
 
 const initializeUser = async (user) => {
   if (user) {
@@ -32,8 +40,10 @@ const initializeUser = async (user) => {
       expires: Date.now() + aDay,
     });
   } else {
-    await cookies.remove({ name: "token" });
+    await cookieStore.delete("token");
+    await cookieStore.delete("userEmail");
+    await cookieStore.delete("userId");
   }
 };
 
-export {signUpWithEmailAndPassword};
+export { signUpWithEmailAndPassword, logInWithEmailAndPassword, signOut };
