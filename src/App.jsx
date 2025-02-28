@@ -7,10 +7,12 @@ import Faq from "./pages/Faq";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import AuthPageLayout from "./layout/AuthPageLayout";
+import AuthProvider from "./authContext";
 
 function App() {
   return (
     <>
+      <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
@@ -25,6 +27,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
+      </AuthProvider>
     </>
   )
 }
