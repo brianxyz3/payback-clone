@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router";
 // import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 // import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { Login } from "@mui/icons-material";
+import { useAuth } from "../authContext";
+import LoggedInNavIcon from "./LoggedInNavIcon";
+import LoggedOutNavIcon from "./LoggedOutNavIcon";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { userLoggedIn } = useAuth();
+
 
     const navItems = [
         {
@@ -32,30 +35,33 @@ const Navbar = () => {
             <nav className="w-dvw fixed top-0 z-50 bg-[#112152] px-3 text-blue-600 md:text-[#f4f4f4] py-4">
             <div className="flex justify-between md:items-center">
                     <Link to="/"><div className="text-xl font-bold font-sans text-blue-800 md:text-2xl"><span className="text-blue-300">r</span>ockettarefund.org</div></Link>
-                    <div className={`${isOpen ? "h-52" : "h-0 opacity-0 scale-0"} md:opacity-100 md:scale-100 md:h-fit md:flex md:justify-evenly md:w-11/12 duration-150`}>
+                    <div className={`${isOpen ? "h-56" : "h-0 opacity-0 scale-0"} md:opacity-100 md:scale-100 md:h-fit md:flex md:justify-evenly md:w-11/12 duration-150`}>
                         <div className={"w-full flex"}>
-                            <div className="w-1/2 flex justify-center border-1 md:border-none pt-3 text-center gap-4 absolute md:static top-20 left-0 right-0 mx-auto flex-col md:flex-row md:w-full">
+                            <div className="w-1/2 flex justify-center border-1 md:border-none pt-0 text-center gap-y-4 absolute md:static top-20 left-0 right-0 mx-auto flex-col md:flex-row md:w-full md:gap-x-6 lg:gap-x-8 xl:gap-x-10">
                                 {navItems.map((item, idx) => (
                                     <Link
                                         key={idx}
                                         onClick={() => (setIsOpen(false))}
                                         to={item.link}
-                                        className="border-b-2 border-gray-200 md:border-[#112152] hover:border-b-blue-300 md:hover:-translate-y-1 hover:text-blue-30">{item.title}</Link>
+                                        className="border-b-2 border-gray-200 md:border-[#112152] hover:border-b-blue-300 md:hover:-translate-y-1 hover:text-blue-30 hover:scale-105">{item.title}</Link>
                                 ))}
+                                {/* sign in and sign out for mobile view */}
+                                <div className="md:hidden flex justify-between">
+                                    {
+                                        userLoggedIn ? <LoggedInNavIcon /> : <LoggedOutNavIcon />
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="flex gap-4">
-                        {
-                            true ?
-                                <Link to="/login">
-                                    <Login sx={{ fontSize: 32 }} className="hover:text-blue-500" />
-                                </Link>
-                                : <Link to="/login">
-                                    <AccountCircleOutlinedIcon sx={{ fontSize: 32 }} className="hover:text-blue-500" />
-                                </Link>
+                        <div className="hidden md:flex gap-4">{
+                            // sign in and sign out for large screen size
+                            userLoggedIn ?
+                                <LoggedInNavIcon order="flex-row-reverse" /> : <LoggedOutNavIcon /> 
                         }
+                        </div>
 
                     {/* old mobile navbar collapse button */}
                     {/* <button className="flex p-1 md:hidden text-white bg-blue-500 rounded-md" onClick={toggleNavbar}>
