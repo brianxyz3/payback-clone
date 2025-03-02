@@ -1,6 +1,6 @@
 const submitCaseFile = async (newCase) => {
   try {
-    const res = await fetch(`/api/newCase`, {
+    const res = await fetch("/api/newCase", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -16,8 +16,40 @@ const submitCaseFile = async (newCase) => {
 
 const registerUser = async (newUser) => {
   try {
-    const res = await fetch(`/api/register`, {
+    const res = await fetch("/api/register", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.log(`An error occurred, ${err}`);
+  }
+};
+
+const registerAdmin = async (newUser) => {
+  try {
+    const res = await fetch("/api/registerAdmin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.log(`An error occurred, ${err}`);
+  }
+};
+
+const updateUserToAdmin = async (newUser) => {
+  try {
+    const res = await fetch("/api/updateUserToAdmin", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,17 +64,24 @@ const registerUser = async (newUser) => {
 
 const loginUser = async (user) => {
   try {
-    const res = await fetch(`/api/login`, {
+    const res = await fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     });
-    return;
+    const data = await res.json();
+    return data;
   } catch (err) {
     return console.log(`An error occurred, ${err}`);
   }
 };
 
-export { submitCaseFile, registerUser, loginUser };
+export {
+  submitCaseFile,
+  registerUser,
+  loginUser,
+  registerAdmin,
+  updateUserToAdmin,
+};

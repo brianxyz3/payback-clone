@@ -1,11 +1,26 @@
-import { registerUser, loginUser } from "../controller/apiController";
+import {
+  registerUser,
+  loginUser,
+  registerAdmin,
+  updateUserToAdmin,
+} from "../controller/apiController";
 
 const aDay = 24 * 60 * 60 * 1000;
 
 const signUpWithEmailAndPassword = async (details) => {
   const newUser = await registerUser(details);
-  initializeUser(newUser);
+  await initializeUser(newUser);
   return newUser;
+};
+
+const addAdminWithEmailAndPassword = async (details) => {
+  const newAdmin = await registerAdmin(details);
+  return newAdmin;
+};
+
+const addAdminWithExistingUser = async (details) => {
+  const newAdmin = await updateUserToAdmin(details);
+  return newAdmin;
 };
 
 const logInWithEmailAndPassword = async (details) => {
@@ -17,7 +32,7 @@ const logInWithEmailAndPassword = async (details) => {
 const signOut = () => initializeUser(null);
 
 const initializeUser = async (user) => {
-  if (user) {
+  if (user && user.token) {
     await cookieStore.set({
       name: "token",
       value: user.token,
@@ -39,11 +54,26 @@ const initializeUser = async (user) => {
       httpOnly: true,
       expires: Date.now() + aDay,
     });
+
+    await cookieStore.set({
+      name: "isAdmin",
+      value: user.isAdmin,
+      secure: true,
+      httpOnly: true,
+      expires: Date.now() + aDay,
+    });
   } else {
     await cookieStore.delete("token");
     await cookieStore.delete("userEmail");
     await cookieStore.delete("userId");
+    await cookieStore.delete("isAdmin");
   }
 };
 
-export { signUpWithEmailAndPassword, logInWithEmailAndPassword, signOut };
+export {
+  signUpWithEmailAndPassword,
+  logInWithEmailAndPassword,
+  signOut,
+  addAdminWithEmailAndPassword,
+  addAdminWithExistingUser,
+};
