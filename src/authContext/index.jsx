@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { createContext } from "react";
-
+import React, { useContext, createContext, useEffect, useState } from "react";
 
 
 const AuthContext = createContext();
 
-export const useAuth = () => (
-    useContext(AuthContext)
-);
+export const useAuth = () => {
+    return useContext(AuthContext)
+};
 
 const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState({});
@@ -15,21 +13,25 @@ const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        console.log("auth useeffect ran");
-        updateUser();
-        console.log("end of effect");
-        
+        updateUser();      
     }, []);
 
 const updateUser = async () => {
     const getUserEmail = await cookieStore.get("userEmail");
     const getUserId = await cookieStore.get("userId");
+    const getUserPerm = await cookieStore.get("isAdmin");
     if (getUserEmail && getUserId) {
-        setCurrentUser({ email: getUserEmail.value, id: getUserId.value });
+        if (getUserPerm.value == "true") {
+            setCurrentUser({ email: getUserEmail.value, id: getUserId.value, isAdmin: true });
         setUserLoggedIn(true);
+        } else if (getUserPerm.value == "false") {
+            setCurrentUser({ email: getUserEmail.value, id: getUserId.value, isAdmin: false });
+            setUserLoggedIn(true);
+        }
     }
     setIsLoading(false);
 };
+
 
     const value  = {
         currentUser,
