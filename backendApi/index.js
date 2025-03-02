@@ -61,7 +61,7 @@ app.post(
       res.status(201).json(caseFile);
     } catch (err) {
       console.log(err);
-      res.status(500).json({ message: "An error occurred, " + err.message });
+      throw new ExpressError(500, "An error occurred, " + err.message);
     }
   })
 );
@@ -71,7 +71,8 @@ app.post(
   sanitizeUser,
   catchAsync(async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
-    const user = User.find({ email });
+    const userArr = User.find({ email });
+    const user = userArr[0];
 
     try {
       if (!user) {
@@ -93,11 +94,11 @@ app.post(
           id: registeredUser._id,
         });
       } else {
-        res.json({ message: "A user already exist with this email" });
+        throw new ExpressError(400, "A user already exist with this email");
       }
     } catch (err) {
       console.log("An error occurred, " + err);
-      res.status(500).json({ message: "Something went wrong. Try again." });
+      throw new ExpressError(500, "Something went wrong. Try again.");
     }
   })
 );
@@ -138,7 +139,7 @@ app.post(
       }
     } catch (err) {
       console.log("An error occurred, " + err);
-      res.status(500).json({ message: "Something went wrong. Try again." });
+      throw new ExpressError(500, "Something went wrong. Try again.");
     }
   })
 );
@@ -163,7 +164,7 @@ app.put(
       }
     } catch (err) {
       console.log("An error occurred, " + err);
-      res.status(500).json({ message: "Something went wrong. Try again." });
+      throw new ExpressError(500, "Something went wrong. Try again.");
     }
   })
 );
@@ -189,13 +190,22 @@ app.post(
           id: user._id,
         });
       } else {
-        res.status(401).json({ message: "Invalid Login Credentials" });
+        throw new ExpressError(400, "Invalid login credentials");
       }
     } catch (err) {
       console.log("An error occurred, " + err);
-      res.status(400).json({ message: "Invalid request" });
+      throw new ExpressError(401, "Invalid request");
     }
   })
 );
+
+app.all("*", (req, res, next) => {
+  throw new ExpressError(404, "Page Not Found");
+});
+
+app.use((err, req, res, next) => {
+  const { statusCode = 500, message = "Something Went Wrong. Try Again" } = err;
+  res.status(statusCode).json(`${statusCode} ${message}`);
+});
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
