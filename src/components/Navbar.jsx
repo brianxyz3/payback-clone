@@ -46,7 +46,7 @@ const Navbar = () => {
                                         className="border-b-2 border-gray-200 md:border-[#112152] hover:border-b-blue-300 md:hover:-translate-y-1 hover:text-blue-30 hover:scale-105">{item.title}</Link>
                                 ))}
                                 {/* sign in and sign out for mobile view */}
-                                <div className="md:hidden flex justify-between">
+                                <div className="md:hidden flex justify-between items-center">
                                     {
                                         userLoggedIn ? <LoggedInNavIcon /> : <LoggedOutNavIcon />
                                     }
@@ -56,7 +56,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex gap-4">
-                        <div className="hidden md:flex gap-4">{
+                        <div className="hidden md:flex gap-4  items-center">{
                             // sign in and sign out for large screen size
                             userLoggedIn ?
                                 <LoggedInNavIcon order="flex-row-reverse" /> : <LoggedOutNavIcon /> 

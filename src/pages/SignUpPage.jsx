@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { useState } from "react";
+import { Link } from "react-router";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { TextField, FormControlLabel, Checkbox } from "@mui/material";
@@ -13,7 +13,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { signUpWithEmailAndPassword } from "../controller/authController";
 
 const SignUpPage = () => {
-    const navigate = useNavigate();
+    const originLocation = location.origin;
 
     const {
         register,
@@ -55,12 +55,12 @@ const SignUpPage = () => {
     const handleRegister = async (data) => {
         try {
             if (data.password === data.confirmPassword) {
-                const user = { ...data };
+                const user = { ...data, isAdmin: true };
                 const newUser = await signUpWithEmailAndPassword(user);
 
                 if (newUser.token) {
                     toast.success("User Successfully Registered");
-                    setTimeout(() => (navigate(0)), 3000)
+                    setTimeout(() => (location.assign(originLocation + "/")), 1500)
                 }
             } else {
                 toast.error("Password does not match");

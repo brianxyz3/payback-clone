@@ -92,6 +92,7 @@ app.post(
           token,
           email: registeredUser.email,
           id: registeredUser._id,
+          isAdmin: registeredUser.isAdmin,
         });
       } else {
         throw new ExpressError(400, "A user already exist with this email");

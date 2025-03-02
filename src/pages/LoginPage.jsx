@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { TextField, FormControlLabel, Checkbox } from "@mui/material";
 import { IconButton, OutlinedInput, InputLabel, InputAdornment, FormControl } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { toast } from "react-toastify";
-import { loginUser } from "../controller/apiController";
+import { logInWithEmailAndPassword } from "../controller/authController";
 
 const LoginPage = () => {
+    const originLocation = location.origin;
     const {
         handleSubmit,
         register,
         formState: { errors },
     } = useForm({ mode: "onChange" });
-    const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -24,15 +24,16 @@ const LoginPage = () => {
     };
 
     const handleLogin = async (data) => {
-        // const user = await loginUser(data);
-        if (user.token) {
-            localStorage.setItem("token", user.token);
-            localStorage.setItem("userId", user.id);
-            console.log(user);
-            navigate("/jobs");
-            toast.success("Welcome Back");
-        } else {
-            toast.error("Incorrect Login Details");
+        try {
+            const user = await logInWithEmailAndPassword(data);
+            if (user.token) {
+                toast.success("Welcome Back");
+                setTimeout(() => (location.assign(originLocation + "/")), 1000)
+            } else {
+                toast.error("Incorrect Login Details");
+            }
+        } catch (err) {
+            return toast.error("Something went wrong. Try again");
         }
     }
 
@@ -47,7 +48,7 @@ const LoginPage = () => {
                     </div>
                     <form onSubmit={handleSubmit(handleLogin)}>
                         <div className="flex flex-col gap-8">
-                            <TextField fullWidth error={Boolean(errors.email)} size="small" label="Email" variant="outlined" autoComplete="email" {...register("username", { required: true })} />
+                            <TextField fullWidth error={Boolean(errors.email)} size="small" label="Email" variant="outlined" autoComplete="email" {...register("email", { required: true })} />
 
                             <FormControl fullWidth variant="outlined" size='small'>
                                 <InputLabel htmlFor="password">Password</InputLabel>
