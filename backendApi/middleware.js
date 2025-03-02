@@ -30,4 +30,17 @@ const sanitizeUser = (req, res, next) => {
   }
 };
 
-export { sanitizeCaseFile, sanitizeUser };
+const sanitizeUserLogin = (req, res, next) => {
+  try {
+    const user = req.body;
+    console.log(user);
+
+    user.email = validator.normalizeEmail(req.body.email);
+    user.password = validator.escape(req.body.password);
+    next();
+  } catch (err) {
+    throw new ExpressError(400, err);
+  }
+};
+
+export { sanitizeCaseFile, sanitizeUser, sanitizeUserLogin };
