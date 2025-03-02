@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import AuthPageLayout from "./layout/AuthPageLayout";
 import AuthProvider from "./authContext";
+import AddAdminPage from "./pages/AddAdminPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route element={<AuthPageLayout />}>
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
+              <Route path="/addAdmin" element={<AddAdminPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
