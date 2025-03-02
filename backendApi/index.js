@@ -12,6 +12,7 @@ import {
 } from "./middleware.js";
 import catchAsync from "./utilities/catchAsync.js";
 import User from "./models/user.js";
+import ExpressError from "./utilities/ExpressError.js";
 const dbUrl = "mongodb://localhost:27017/payback";
 const PORT = env.PORT || 8000;
 const jwtSecret = env.JWT_SECRET || "notagoodsecret1";
@@ -112,14 +113,10 @@ app.post(
 
       const user = userArr[0];
       if (user) {
-        const newAdmin = await User.findByIdAndUpdate({ id: user._id });
-        const token = generateToken(newAdmin);
-        res.status(201).json({
-          token,
-          email: newAdmin.email,
-          isAdmin: newAdmin.isAdmin,
-          id: newAdmin._id,
-        });
+        throw new ExpressError(
+          400,
+          "A user profile already exists with that email"
+        );
       } else if (!user) {
         console.log("IN REGISTER USER ");
 
@@ -135,13 +132,34 @@ app.post(
         });
         console.log(newAdmin);
         const registeredAdmin = await newAdmin.save();
-        const token = generateToken(registeredAdmin);
         res.status(201).json({
-          token,
-          email: registeredAdmin.email,
-          isAdmin: registeredAdmin.isAdmin,
           id: registeredAdmin._id,
         });
+      }
+    } catch (err) {
+      console.log("An error occurred, " + err);
+      res.status(500).json({ message: "Something went wrong. Try again." });
+    }
+  })
+);
+
+app.put(
+  "/updateUserToAdmin",
+  sanitizeUser,
+  catchAsync(async (req, res) => {
+    const { email, isAdmin } = req.body;
+
+    try {
+      const userArr = await User.find({ email });
+
+      const user = userArr[0];
+      if (user) {
+        const newAdmin = await User.findByIdAndUpdate(user._id, { isAdmin });
+        res.status(201).json({
+          id: newAdmin._id,
+        });
+      } else if (!user) {
+        throw new ExpressError(404, "User profile not found");
       }
     } catch (err) {
       console.log("An error occurred, " + err);
