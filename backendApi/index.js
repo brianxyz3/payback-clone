@@ -6,6 +6,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import UserCaseFile from "./models/userCaseFile.js";
 import {
+  checkUserAuthentication,
+  checkUserAuthorization,
   sanitizeCaseFile,
   sanitizeUser,
   sanitizeUserLogin,
@@ -107,6 +109,8 @@ app.post(
 app.post(
   "/registerAdmin",
   sanitizeUser,
+  checkUserAuthentication,
+  checkUserAuthorization,
   catchAsync(async (req, res) => {
     const { firstName, lastName, email, password, isAdmin } = req.body;
 
@@ -148,6 +152,8 @@ app.post(
 app.put(
   "/updateUserToAdmin",
   sanitizeUser,
+  checkUserAuthentication,
+  checkUserAuthorization,
   catchAsync(async (req, res) => {
     const { email, isAdmin } = req.body;
 
@@ -179,12 +185,17 @@ app.post(
       const userArr = await User.find({ email });
       const user = userArr[0];
 
-      const isPassword = await bcrypt.compare(password, user.password);
+      const isPassword = await bcrypt
+        .compare(password, user.password)
+        .catch((err) => {
+          console.log("Error from bycrpt password compare: " + err);
+          throw new ExpressError(400, "Invalid login credentials");
+        });
 
       if (isPassword) {
         const token = generateToken(user);
 
-        res.status(201).json({
+        res.status(200).json({
           token,
           email: user.email,
           isAdmin: user.isAdmin,

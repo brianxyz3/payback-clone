@@ -1,5 +1,10 @@
 import validator from "validator";
 import ExpressError from "./utilities/ExpressError.js";
+import jwt from "jsonwebtoken";
+import { env } from "node:process";
+import User from "./models/user.js";
+
+const jwtSecret = env.JWT_SECRET || "notagoodsecret1";
 
 const sanitizeCaseFile = (req, res, next) => {
   try {
@@ -11,36 +16,69 @@ const sanitizeCaseFile = (req, res, next) => {
     caseFile.description = validator.escape(req.body.description);
     next();
   } catch (err) {
-    throw new ExpressError(400, err);
+    console.log("error from sanitizeCaseFile middleware: " + err);
   }
 };
 
 const sanitizeUser = (req, res, next) => {
   try {
     const user = req.body;
-    console.log(user);
-
     user.firstName = validator.escape(req.body.firstName);
     user.lastName = validator.escape(req.body.lastName);
     user.email = validator.normalizeEmail(req.body.email);
     user.password = validator.escape(req.body.password);
     next();
   } catch (err) {
-    throw new ExpressError(400, err);
+    console.log("error from sanitizeUser middleware: " + err);
   }
 };
 
 const sanitizeUserLogin = (req, res, next) => {
   try {
     const user = req.body;
-    console.log(user);
-
     user.email = validator.normalizeEmail(req.body.email);
     user.password = validator.escape(req.body.password);
     next();
   } catch (err) {
-    throw new ExpressError(400, err);
+    console.log("error from sanitizeUserLogin middleware: " + err);
   }
 };
 
-export { sanitizeCaseFile, sanitizeUser, sanitizeUserLogin };
+const checkUserAuthentication = (req, res, next) => {
+  const token = req.headers?.authorization;
+  try {
+    if (req.headers?.cookie.includes(token)) {
+      jwt.verify(token, jwtSecret);
+      next();
+    } else {
+      throw new ExpressError(401, "Invalid user token");
+    }
+  } catch (err) {
+    console.log("error from authentication check middleware: " + err);
+  }
+};
+
+const checkUserAuthorization = async (req, res, next) => {
+  try {
+    if (req.headers?.admin == "true") {
+      console.log("inside");
+
+      const { id } = req.headers;
+      const user = await User.findById(id);
+      if (user.isAdmin) next();
+      throw new ExpressError(403, "Access Denied");
+    } else {
+      throw new ExpressError(403, "Access Denied");
+    }
+  } catch (err) {
+    console.log("error from authorization check middleware: " + err);
+  }
+};
+
+export {
+  sanitizeCaseFile,
+  sanitizeUser,
+  sanitizeUserLogin,
+  checkUserAuthentication,
+  checkUserAuthorization,
+};

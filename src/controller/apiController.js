@@ -1,3 +1,7 @@
+const token = await cookieStore.get("token");
+const userId = await cookieStore.get("userId");
+const auth = await cookieStore.get("isAdmin");
+
 const submitCaseFile = async (newCase) => {
   try {
     const res = await fetch("/api/newCase", {
@@ -35,6 +39,9 @@ const registerAdmin = async (newUser) => {
     const res = await fetch("/api/registerAdmin", {
       method: "POST",
       headers: {
+        authorization: token?.value,
+        id: userId?.value,
+        admin: auth.value,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newUser),
@@ -51,6 +58,9 @@ const updateUserToAdmin = async (newUser) => {
     const res = await fetch("/api/updateUserToAdmin", {
       method: "PUT",
       headers: {
+        authorization: token?.value,
+        id: userId?.value,
+        admin: auth.value,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newUser),
