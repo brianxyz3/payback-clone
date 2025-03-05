@@ -16,7 +16,7 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../authContext";
 
 
-const AddAdminPage = () => {
+const AdminPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isExistiingUser, setIsExistiingUser] = useState(false);
   const {currentUser} = useAuth();
@@ -80,12 +80,14 @@ const AddAdminPage = () => {
 
   const handleUpdateUserPerm = async (data) => {
     try {
-        const user = { ...data, isAdmin: true };
+      const user = { ...data };
       const newAdmin = await addAdminWithExistingUser(user);
 
       if (newAdmin.id) {
-          toast.success("Admin Permission Successfully Added");
-          setTimeout(() => (navigate("/")), 2500)
+        newAdmin.permissionStatus ?
+          toast.success("Admin Permission Added")
+          : toast.success("Admin Permission Removed")
+        setTimeout(() => (navigate("/")), 3500)
         }
     } catch (err) {
       toast.error("Something Went Wrong. Try Again");
@@ -101,8 +103,8 @@ const AddAdminPage = () => {
       {
       isExistiingUser ?
         <AddAdmin
-        title="Grant Admin Permission to Profile"
-        desc="Not a member?"
+            title="Edit User Admin Permission"
+            desc="Not already a member?"
         descBtnText="Add Admin Profile"
         toggleFunc={toggleIsExistiingUser}
         >
@@ -115,7 +117,7 @@ const AddAdminPage = () => {
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md w-full focus:outline-none focus:shadow-outline hover:scale-105 duration-100"
               type="submit"
             >
-              Grant User Admin Permission
+                Update Admin Permission
             </button>
           </form>
         </AddAdmin>
@@ -183,7 +185,7 @@ const AddAdminPage = () => {
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md w-full focus:outline-none focus:shadow-outline hover:scale-105 duration-100"
             type="submit"
           >
-            Add New Admin Profile
+                Add Admin Profile
           </button>
         </form>
       </AddAdmin>
@@ -192,4 +194,4 @@ const AddAdminPage = () => {
   )
 }
 
-export default AddAdminPage;
+export default AdminPage;

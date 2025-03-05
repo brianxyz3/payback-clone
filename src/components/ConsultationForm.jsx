@@ -62,13 +62,12 @@ const ConsultationForm = () => {
     const onSubmit = async (data) => {
         try {
             const res = await submitCaseFile(data);
-            console.log(res);
-            res.status == 201 ?
+            res?._id ?
                 toast.success("Case File Successfully Submitted")
                 : toast.error("Case File Submit Unsuccessful, Try Again");
             const timer = setTimeout(() => {
                 navigate(0);
-            }, 4000);
+            }, 3500);
             return () => clearTimeout(timer);
         } catch (err) {
             toast.error("Case File Submit Unsuccessful, Try Again");
@@ -81,7 +80,7 @@ const ConsultationForm = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
             <div className="flex flex-col gap-4 md:flex-row md:gap-2">
                 <div className="w-full">
-                    <TextField {...register("firstName", validateForm.firstName)} error={Boolean(errors.firstName)} label="Your Name" variant="outlined" required className="w-full bg-gray-100 border-none md:mt-0" />
+                    <TextField {...register("firstName", validateForm.firstName)} error={Boolean(errors.firstName)} label="First Name" variant="outlined" required className="w-full bg-gray-100 border-none md:mt-0" />
                     {errors.firstName && <span style={errorStyle}>{validateForm.firstName.required}</span>}
                 </div>
                 <div className="w-full">
