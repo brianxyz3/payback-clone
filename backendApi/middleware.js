@@ -65,8 +65,11 @@ const checkUserAuthorization = async (req, res, next) => {
 
       const { id } = req.headers;
       const user = await User.findById(id);
-      if (user.isAdmin) next();
-      throw new ExpressError(403, "Access Denied");
+      if (user.isAdmin) {
+        next();
+      } else {
+        throw new ExpressError(403, "Access Denied");
+      }
     } else {
       throw new ExpressError(403, "Access Denied");
     }

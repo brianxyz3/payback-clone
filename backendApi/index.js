@@ -155,16 +155,21 @@ app.put(
   checkUserAuthentication,
   checkUserAuthorization,
   catchAsync(async (req, res) => {
-    const { email, isAdmin } = req.body;
+    const { email } = req.body;
 
     try {
       const userArr = await User.find({ email });
 
       const user = userArr[0];
       if (user) {
-        const newAdmin = await User.findByIdAndUpdate(user._id, { isAdmin });
-        res.status(201).json({
+        const { isAdmin } = user;
+        const newAdmin = await User.findByIdAndUpdate(user._id, {
+          isAdmin: !isAdmin,
+        });
+
+        res.status(200).json({
           id: newAdmin._id,
+          permissionStatus: !isAdmin,
         });
       } else if (!user) {
         throw new ExpressError(404, "User profile not found");
