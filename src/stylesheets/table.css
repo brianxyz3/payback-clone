@@ -1,0 +1,4 @@
+.grid_col{
+    grid-template-columns: 100px 100px 100px 200px 200px 350px;
+    background: red;
+}

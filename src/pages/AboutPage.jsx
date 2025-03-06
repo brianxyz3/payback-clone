@@ -17,7 +17,7 @@ const AboutPage = () => {
                 <h3 className="text-3xl text-center font-bold my-3">Our Investigation Services</h3>
                 <p>With our specialized team of experts, we offer cutting-edge scam investigation services that go beyond recovery, focusing on holding fraudsters accountable for their actions.</p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-70/30 w-full my-3">
+            <div className="grid grid-cols-1 lg:grid-cols-60/36 w-full my-3">
                 <div className="text-gray-600">
                     <div className="bg-white text-center w-11/12 mx-auto py-2 mb-4">
                         <AboutPageCard number="01" title="Comprehensive Scam Investigation" description="Our investigative scope spans beyond cryptocurrencies to encompass all fraudulent activities, leveraging sophisticated tools and techniques to protect victimized parties." />

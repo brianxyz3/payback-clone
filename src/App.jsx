@@ -9,6 +9,7 @@ import SignUpPage from "./pages/SignUpPage";
 import AuthPageLayout from "./layout/AuthPageLayout";
 import AuthProvider from "./authContext";
 import AdminPage from "./pages/AdminPage";
+import CasesPage from "./pages/CasesPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/faq" element={<Faq />} />
+              <Route path="/cases" element={<CasesPage />} />
           </Route>
           <Route element={<AuthPageLayout />}>
             <Route path="/signup" element={<SignUpPage />} />

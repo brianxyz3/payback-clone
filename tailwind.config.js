@@ -7,7 +7,7 @@ export default {
         sans: ["Raleway", "Roboto"],
       },
       gridTemplateColumns: {
-        "70/30": "60% 36%",
+        "60/36": "60% 36%",
         "40/60": "40% 60%",
       },
     },
