@@ -6,8 +6,7 @@ const TableHeader = () => {
   return (
     <TableRow>
         <TableHeaderCell>FirstName</TableHeaderCell>
-        <TableHeaderCell>LastName</TableHeaderCell>
-        <TableHeaderCell>Contact Phone</TableHeaderCell>
+          <TableHeaderCell>LastName</TableHeaderCell>
         <TableHeaderCell>Contact Email</TableHeaderCell>
         <TableHeaderCell>Amount Lost</TableHeaderCell>
         <TableHeaderCell>Description</TableHeaderCell>

@@ -18,6 +18,24 @@ const submitCaseFile = async (newCase) => {
   }
 };
 
+const getCaseFiles = async () => {
+  try {
+    const res = await fetch("/api/cases", {
+      method: "GET",
+      headers: {
+        authorization: token?.value,
+        id: userId?.value,
+        admin: auth.value,
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.log(`An error occurred, ${err}`);
+  }
+};
+
 const registerUser = async (newUser) => {
   try {
     const res = await fetch("/api/register", {
@@ -94,4 +112,5 @@ export {
   loginUser,
   registerAdmin,
   updateUserToAdmin,
+  getCaseFiles,
 };

@@ -3,7 +3,7 @@ import React from "react";
 
 const TableRow = ({ children }) => {
   return (
-      <tr className="grid_col">
+      <tr>
         {children}
     </tr>
   )

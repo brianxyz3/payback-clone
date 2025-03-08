@@ -216,6 +216,20 @@ app.post(
   })
 );
 
+
+app.get(
+  "/cases",
+  checkUserAuthentication,
+  checkUserAuthorization,
+  catchAsync(async (req, res) => {
+    try {
+      const cases = await UserCaseFile.find();
+      res.status(200).json(cases);
+    } catch (err) {
+      console.log("Error occured fetching case file data " + err);
+    }
+  })
+);
 app.all("*", (req, res, next) => {
   throw new ExpressError(404, "Page Not Found");
 });

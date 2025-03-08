@@ -99,7 +99,7 @@ const ConsultationForm = () => {
                 </div>
             </div>
 
-            <FormControl fullWidth>
+            <FormControl fullWidth className="bg-gray-100">
                 <InputLabel id="type">How much did you invest ($)</InputLabel>
                 <Select
                     required
@@ -126,6 +126,7 @@ const ConsultationForm = () => {
                     fullWidth
                     id="outlined-multiline-static"
                     label="Outline your case"
+                    className="bg-gray-100"
                     multiline
                     rows={4}
                     defaultValue=""

@@ -12,6 +12,7 @@ const UserCaseFileSchema = new Schema({
   },
   contactPhone: {
     type: String,
+    default: "Nil",
   },
   contactEmail: {
     type: String,
@@ -32,6 +33,10 @@ const UserCaseFileSchema = new Schema({
   },
   description: {
     type: String,
+  },
+  isClosed: {
+    type: Boolean,
+    default: false,
   },
 });
 

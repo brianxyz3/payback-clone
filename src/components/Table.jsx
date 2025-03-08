@@ -2,8 +2,8 @@ import React from "react";
 
 const Table = ({ children }) => {
   return (
-    <table className="w-dvw overflow-scroll">
-        {children}
+    <table className="table-fixed min-w-[55rem] w-full">
+      {children}
     </table>
   )
 }
