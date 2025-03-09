@@ -15,6 +15,9 @@ import { filesImg } from "../assets/images";
 
 const CasesPage = () => {
     const [cases, setCases] = useState([]);
+    const [showAllCases, setShowAllCases] = useState(true);
+    const [showClosedCases, setShowClosedCases] = useState(false);
+    const [showOpenCases, setShowOpenCases] = useState(false);
     const { currentUser } = useAuth();
     const navigate = useNavigate();
 
@@ -30,10 +33,25 @@ const CasesPage = () => {
     const closedCases = cases.filter((file) => {
         return file.isClosed === true;
     })
+
+    const openCases = cases.filter((file) => {
+        return file.isClosed === false;
+    })
     const percentClosedCases = Math.floor((closedCases.length / cases.length) * 100 );
 
     const percent = `${percentClosedCases}%`;
     const size = { "--closedCases": percent }
+
+    const files = (filesArr) => (
+    filesArr.map((caseFile) => (
+        <TableRow key={caseFile._id}>
+            <TableBodyCell>{caseFile.firstName}</TableBodyCell>
+            <TableBodyCell>{caseFile.lastName}</TableBodyCell>
+            <TableBodyCell>{caseFile.contactEmail}</TableBodyCell>
+            <TableBodyCell>{caseFile.lostAmount}</TableBodyCell>
+            <TableBodyCell>{caseFile.description.slice(0, 90)}...</TableBodyCell>
+        </TableRow>
+    )))
 
   return (
       <section className="overflow-hidden">
@@ -61,7 +79,7 @@ const CasesPage = () => {
                   </div>
               </div>
               
-              <StatsAnalysisCard gridArea="content1">
+              <StatsAnalysisCard style="content1 bg-gradient-to-bl to-blue-500 from-[#112152]">
                 <div className="w-1/2">
                     <img src={filesImg} alt="a vector image of a hand holding a briefcase" />
                 </div>
@@ -74,7 +92,7 @@ const CasesPage = () => {
                 </div>
               </StatsAnalysisCard>
 
-              <StatsAnalysisCard gridArea="content2">
+              <StatsAnalysisCard style="content2 bg-gradient-to-br to-blue-500 from-[#112152]">
                   <div className="cases_analysis w-3/5 lg:w-1/2" style={size}>
                       <div className="pie_chart text-black flex items-center text-sm lg:text-base justify-center p-2 text-center">
                           <p>Closed <span className={`text-${percentClosedCases >= 50 ? "green-600" : "red-600"}`}>{percentClosedCases}%</span> of Cases</p>
@@ -91,25 +109,37 @@ const CasesPage = () => {
                   </div>
               </StatsAnalysisCard>
             <section className="table overflow-scroll">
-                  <div className="w-screen overflow-scroll">
-                <Table>
-                    <thead>
-                        <TableHeader/>
-                    </thead>
+                <div className="ms-auto w-fit me-4 flex items-center gap-3">
+                    <div className="flex gap-1">
+                    <input type="checkbox" name="allCases" id="allCases" checked={showAllCases} disabled={true} />
+                    <label htmlFor="allCases">All Cases</label>
+                    </div>
+                    <div className="flex gap-1">
+                    <input type="checkbox" name="openCases" id="openCases" checked={showOpenCases} onClick={() => {
+                        setShowOpenCases(prevState => !prevState)
+                        return setShowClosedCases(false)
+                    }} />
+                    <label htmlFor="openCases">Open Cases</label>
+                    </div>
+                    <div className="flex gap-1">
+                    <input type="checkbox" name="closedCases" id="closedCases" checked={showClosedCases} onClick={() => {
+                        setShowClosedCases(prevState => !prevState)
+                        return setShowOpenCases(false)
+                    }} />
+                    <label htmlFor="closedCases">Closed Cases</label>
+                    </div>
+                </div>
+                <div className="w-screen overflow-scroll">
+                    <Table>
+                        <thead>
+                            <TableHeader/>
+                        </thead>
 
-                    <tbody>
-                        {cases.map((caseFile) => (
-                            <TableRow key={caseFile._id}>
-                                <TableBodyCell>{caseFile.firstName}</TableBodyCell>
-                                <TableBodyCell>{caseFile.lastName}</TableBodyCell>
-                                <TableBodyCell>{caseFile.contactEmail}</TableBodyCell>
-                                <TableBodyCell>{caseFile.lostAmount}</TableBodyCell>
-                                <TableBodyCell>{caseFile.description.slice(0, 90)}...</TableBodyCell>
-                            </TableRow>
-                        ))}
-                    </tbody>
-                </Table>
-                  </div>
+                        <tbody>
+                              {showClosedCases && files(closedCases) || showOpenCases && files(openCases) || showAllCases && files(cases)}
+                        </tbody>
+                    </Table>
+                </div>
             </section>
         </div>
     </section>
