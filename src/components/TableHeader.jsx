@@ -10,6 +10,7 @@ const TableHeader = () => {
         <TableHeaderCell>Contact Email</TableHeaderCell>
         <TableHeaderCell>Amount Lost</TableHeaderCell>
         <TableHeaderCell>Description</TableHeaderCell>
+        <TableHeaderCell></TableHeaderCell>
     </TableRow>
   )
 }

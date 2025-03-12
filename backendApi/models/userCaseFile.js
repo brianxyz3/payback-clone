@@ -38,6 +38,10 @@ const UserCaseFileSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  isActiveInvestigation: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export default mongoose.model("UserCaseFile", UserCaseFileSchema);

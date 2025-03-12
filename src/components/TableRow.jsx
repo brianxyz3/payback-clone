@@ -1,10 +1,9 @@
 import React from "react";
 
-
-const TableRow = ({ children }) => {
+const TableRow = ({ children, style }) => {
   return (
-      <tr>
-        {children}
+    <tr className={`border-s-4 ${style}`}>
+      {children}
     </tr>
   )
 }

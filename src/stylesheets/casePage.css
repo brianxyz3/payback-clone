@@ -51,15 +51,15 @@
     width: 180px;
     aspect-ratio: inherit;
     border-radius: inherit;
-    background: conic-gradient(green var(--closedCases), red var(--closedCases), red calc(100% - var(--closedCases)));
+    background: conic-gradient(green var(--closedCases), #dbdb12 var(--activeCases), #dbdb12 calc(var(--activeCases) + var(--closedCases)), red calc(var(--activeCases) + var(--closedCases)), red calc(100% - (var(--activeCases) + var(--closedCases))));
 }
 
-.closed_case, .open_case {
+.closed_case, .open_case, .active_case {
     position: relative;
 }
 
 .closed_case::before,
-.open_case::before {
+.open_case::before, .active_case::before {
     content: "";
     position: absolute;
     left: 2px;
@@ -77,6 +77,20 @@
     background-color: red;
 }
 
+.active_case::before {
+    background-color: #dbdb12;
+}
+
+thead th,
+tbody td {
+    text-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+thead tr {
+    border: 0 solid transparent;
+}
+
 thead th:nth-child(1),
 td:nth-child(1) {
     width: 10%;
@@ -88,13 +102,7 @@ thead th:nth-child(2) {
 
 thead th:nth-child(3),
 td:nth-child(3) {
-    width: 20%;
-}
-
-thead th,
-tbody td {
-    text-wrap: nowrap;
-    overflow-x: scroll;
+    width: 15%;
 }
 
 thead th:nth-child(4) {
@@ -102,7 +110,11 @@ thead th:nth-child(4) {
 }
 
 thead th:nth-child(5) {
-    width: 45%;
+    width: 40%;
+}
+
+thead th:nth-child(6) {
+    width: 10%;
 }
 th:nth-child(odd),td:nth-child(odd) {
     border: 0 0 2px solid black;
@@ -114,7 +126,7 @@ tr:nth-child(even) {
 @media only screen and (max-width: 640px)  {
     .cases_page {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.5fr 0.7fr 0.7fr 2fr;
+        grid-template-rows: 0.2fr 0.7fr 0.7fr 2fr;
         grid-template-areas:
             "title"
             "content1"
@@ -134,8 +146,8 @@ tr:nth-child(even) {
     }
 
     .closed_case::before,
-    .open_case::before {
+    .open_case::before, .active_case::before {
         width: 15px;
-        left: -2px;
+        left: -4px;
     }
 }

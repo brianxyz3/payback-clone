@@ -150,7 +150,7 @@ app.post(
 );
 
 app.put(
-  "/updateUserToAdmin",
+  "/updateUserPermission",
   sanitizeUser,
   checkUserAuthentication,
   checkUserAuthorization,
@@ -174,6 +174,28 @@ app.put(
       } else if (!user) {
         throw new ExpressError(404, "User profile not found");
       }
+    } catch (err) {
+      console.log("An error occurred, " + err);
+      throw new ExpressError(500, "Something went wrong. Try again.");
+    }
+  })
+);
+
+app.put(
+  "/cases/:id",
+  checkUserAuthentication,
+  checkUserAuthorization,
+  catchAsync(async (req, res) => {
+    const {id} = req.params;
+
+    try {
+      const caseFile = await UserCaseFile.findByIdAndUpdate(id, req.body);      
+
+      if (!caseFile) throw new ExpressError(404, "User profile not found");
+      res.status(200).json({
+        status: 200,
+        message: "Operation succesful"
+      });
     } catch (err) {
       console.log("An error occurred, " + err);
       throw new ExpressError(500, "Something went wrong. Try again.");
@@ -230,6 +252,22 @@ app.get(
     }
   })
 );
+
+app.get(
+  "/cases/:id",
+  checkUserAuthentication,
+  checkUserAuthorization,
+  catchAsync(async (req, res) => {
+    try {
+      const {id} = req.params;
+      const caseFile = await UserCaseFile.findById(id);      
+      res.status(200).json(caseFile);
+    } catch (err) {
+      console.log("Error occured fetching case file data " + err);
+    }
+  })
+);
+
 app.all("*", (req, res, next) => {
   throw new ExpressError(404, "Page Not Found");
 });

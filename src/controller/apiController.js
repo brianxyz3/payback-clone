@@ -36,6 +36,24 @@ const getCaseFiles = async () => {
   }
 };
 
+const getFileData = async (id) => {
+  try {
+    const res = await fetch(`/api/cases/${id}`, {
+      method: "GET",
+      headers: {
+        authorization: token?.value,
+        id: userId?.value,
+        admin: auth.value,
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.log(`An error occurred, ${err}`);
+  }
+};
+
 const registerUser = async (newUser) => {
   try {
     const res = await fetch("/api/register", {
@@ -71,9 +89,9 @@ const registerAdmin = async (newUser) => {
   }
 };
 
-const updateUserToAdmin = async (newUser) => {
+const updateUserPermission = async (newUser) => {
   try {
-    const res = await fetch("/api/updateUserToAdmin", {
+    const res = await fetch("/api/updateUserPermission", {
       method: "PUT",
       headers: {
         authorization: token?.value,
@@ -82,6 +100,25 @@ const updateUserToAdmin = async (newUser) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newUser),
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.log(`An error occurred, ${err}`);
+  }
+};
+
+const updateCaseFile = async (id, newInfo) => {
+  try {
+    const res = await fetch(`/api/cases/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: token?.value,
+        id: userId?.value,
+        admin: auth.value,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newInfo),
     });
     const data = await res.json();
     return data;
@@ -111,6 +148,8 @@ export {
   registerUser,
   loginUser,
   registerAdmin,
-  updateUserToAdmin,
+  updateUserPermission,
   getCaseFiles,
+  getFileData,
+  updateCaseFile,
 };

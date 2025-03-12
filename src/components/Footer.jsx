@@ -9,13 +9,13 @@ const Footer = () => {
                 <div className="flex justify-center mb-3">
                     <div className="w-full md:w-1/2 text-lg flex flex-col items-center gap-3 px-2">
                         <p>
-                            Money Back Ltd., which trades as Rockettarefund, is a Canadian company No. XXXXXX, authorized and regulated in Canada, and operates globally.
+                            Rockettarefund Ltd., which trades as Rockettarefund, is a Canadian company No. XXXXXX, authorized and regulated in Canada, and operates globally.
                         </p>
                         <p>
                             In the UK, the company operates through a legal exclusion, which removes the need to be authorized and regulated by the FCA.
                         </p>
                         <p>
-                            In Australia, the company is registered as Money Back (Aust) Ltd., authorized and regulated under ARBN XXXXXX | ASIC XXXXXX | AFCA XXXXXX | Austarlian Credit Licence No. XXXXXX
+                            In Australia, the company is registered as Rockettarefund (Aust) Ltd., authorized and regulated under ARBN XXXXXX | ASIC XXXXXX | AFCA XXXXXX | Australian Credit Licence No. XXXXXX
                         </p>
                     </div>
                 </div>

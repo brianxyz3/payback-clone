@@ -49,6 +49,7 @@ const Navbar = () => {
 
                                 {isAdmin && <Link
                                     to="/cases"
+                                    onClick={() => (setIsOpen(false))}
                                     className="border-b-2 border-gray-200 md:border-[#112152] hover:border-b-blue-300 md:hover:-translate-y-1 hover:text-blue-300 hover:scale-105"
                                 >
                                     CASES
