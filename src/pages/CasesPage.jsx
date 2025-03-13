@@ -63,7 +63,8 @@ const CasesPage = () => {
     )))
 
   return (
-      <section className="overflow-hidden">
+      <main className="overflow-hidden">
+        {currentUser.isAdmin &&
           <div className="cases_page">
               <div className="flex flex-wrap pt-5 m-1 sm:mx-3 table_title gap-y-4 items-start justify-evenly md:justify-between">
                   <div className="order-1">
@@ -162,7 +163,8 @@ const CasesPage = () => {
                 </div>
             </section>
         </div>
-    </section>
+        }
+    </main>
   )
 }
 

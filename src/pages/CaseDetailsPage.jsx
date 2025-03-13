@@ -63,6 +63,8 @@ const CaseDetailsPage = () => {
     
   return (
     <main>
+        {currentUser.isAdmin &&
+        <>
       <section>
             <div className="container m-auto py-6 px-6">
                 <Link
@@ -131,6 +133,8 @@ const CaseDetailsPage = () => {
                     </div>
                 </div>
             </section>
+          </>
+        }
       </main>
   )
 }

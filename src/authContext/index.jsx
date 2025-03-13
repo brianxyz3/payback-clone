@@ -23,11 +23,10 @@ const updateUser = async () => {
     if (getUserEmail && getUserId) {
         if (getUserPerm.value == "true") {
             setCurrentUser({ email: getUserEmail.value, id: getUserId.value, isAdmin: true });
-        setUserLoggedIn(true);
         } else if (getUserPerm.value == "false") {
             setCurrentUser({ email: getUserEmail.value, id: getUserId.value, isAdmin: false });
-            setUserLoggedIn(true);
         }
+        setUserLoggedIn(true);
     }
     setIsLoading(false);
 };

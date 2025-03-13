@@ -100,9 +100,9 @@ const AdminPage = () => {
   }, []);
 
   return (
-      <>
+      <main>
       {
-      isExistiingUser ?
+        isExistiingUser && currentUser.isAdmin ?
         <AddAdmin
             title="Edit User Admin Permission"
             desc="Not already a member?"
@@ -191,7 +191,7 @@ const AdminPage = () => {
         </form>
       </AddAdmin>
     }
-    </>
+    </main>
   )
 }
 
