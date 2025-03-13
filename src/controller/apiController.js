@@ -127,6 +127,25 @@ const updateCaseFile = async (id, newInfo) => {
   }
 };
 
+const addAdminComment = async (id, newComment) => {
+  try {
+    const res = await fetch(`/api/comments/${id}`, {
+      method: "POST",
+      headers: {
+        authorization: token?.value,
+        id: userId?.value,
+        admin: auth.value,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComment),
+    });
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    return console.log(`An error occurred, ${err}`);
+  }
+};
+
 const loginUser = async (user) => {
   try {
     const res = await fetch("/api/login", {
@@ -152,4 +171,5 @@ export {
   getCaseFiles,
   getFileData,
   updateCaseFile,
+  addAdminComment,
 };

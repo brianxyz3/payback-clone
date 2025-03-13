@@ -42,6 +42,10 @@ const UserCaseFileSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  adminComment: [{
+    type: Schema.Types.ObjectId,
+    ref: "AdminComment"
+  }]
 });
 
 export default mongoose.model("UserCaseFile", UserCaseFileSchema);

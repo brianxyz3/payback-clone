@@ -47,8 +47,6 @@ const sanitizeUserLogin = (req, res, next) => {
 const checkUserAuthentication = (req, res, next) => {
   const token = req.headers?.authorization;
   try {
-          console.log(req.headers);
-
     if (req.headers?.cookie.includes(token)) {
       jwt.verify(token, jwtSecret);
       next();

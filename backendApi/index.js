@@ -15,6 +15,7 @@ import {
 import catchAsync from "./utilities/catchAsync.js";
 import User from "./models/user.js";
 import ExpressError from "./utilities/ExpressError.js";
+import AdminComment from "./models/adminComment.js";
 const dbUrl = "mongodb://localhost:27017/payback";
 const PORT = env.PORT || 8000;
 const jwtSecret = env.JWT_SECRET || "notagoodsecret1";
@@ -189,8 +190,32 @@ app.put(
     const {id} = req.params;
 
     try {
-      const caseFile = await UserCaseFile.findByIdAndUpdate(id, req.body);      
+      const caseFile = await UserCaseFile.findByIdAndUpdate(id, req.body);
+      if (!caseFile) throw new ExpressError(404, "User profile not found");
+      res.status(200).json({
+        status: 200,
+        message: "Operation succesful"
+      });
+    } catch (err) {
+      console.log("An error occurred, " + err);
+      throw new ExpressError(500, "Something went wrong. Try again.");
+    }
+  })
+);
 
+app.post(
+  "/comments/:id",
+  checkUserAuthentication,
+  checkUserAuthorization,
+  catchAsync(async (req, res) => {
+    const {id} = req.params;
+
+    try {
+      const comment = new AdminComment(req.body);
+      const newComment = await comment.save();
+      const caseFile = await UserCaseFile.findById(id);
+      caseFile.adminComment.push(newComment._id);
+      await caseFile.save();
       if (!caseFile) throw new ExpressError(404, "User profile not found");
       res.status(200).json({
         status: 200,
@@ -261,6 +286,7 @@ app.get(
     try {
       const {id} = req.params;
       const caseFile = await UserCaseFile.findById(id);      
+      await caseFile.populate("adminComment");
       res.status(200).json(caseFile);
     } catch (err) {
       console.log("Error occured fetching case file data " + err);

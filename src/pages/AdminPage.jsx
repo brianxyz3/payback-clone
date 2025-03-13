@@ -26,6 +26,7 @@ const AdminPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm();
 
@@ -68,7 +69,7 @@ const AdminPage = () => {
 
         if (newAdmin.id) {
           toast.success("Admin Successfully Registered");
-          setTimeout(() => (navigate("/")), 2500)
+          reset();
         }
       } else {
         toast.error("Password does not match");
@@ -83,12 +84,12 @@ const AdminPage = () => {
       const user = { ...data };
       const newAdmin = await addAdminWithExistingUser(user);
 
-      if (newAdmin.id) {
-        newAdmin.permissionStatus ?
+      if (newAdmin.permissionStatus) {
           toast.success("Admin Permission Added")
-          : toast.success("Admin Permission Removed")
-        setTimeout(() => (navigate("/")), 3500)
-        }
+       } else {
+          toast.success("Admin Permission Removed")
+       }
+      reset();
     } catch (err) {
       toast.error("Something Went Wrong. Try Again");
     }

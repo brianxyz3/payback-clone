@@ -23,6 +23,7 @@ const MenuProps = {
 };
 
 const lostAmount = [
+    "",
     "Less than $5,000",
     "$5,000 - $10,000",
     "$10,000 - $20,000",
@@ -37,6 +38,7 @@ const ConsultationForm = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm({ mode: "onChange" });
 
@@ -65,10 +67,7 @@ const ConsultationForm = () => {
             res?._id ?
                 toast.success("Case File Successfully Submitted")
                 : toast.error("Case File Submit Unsuccessful, Try Again");
-            const timer = setTimeout(() => {
-                navigate(0);
-            }, 3500);
-            return () => clearTimeout(timer);
+            reset();
         } catch (err) {
             toast.error("Case File Submit Unsuccessful, Try Again");
         }
@@ -109,9 +108,9 @@ const ConsultationForm = () => {
                     defaultValue=""
                     MenuProps={MenuProps}
                 >
-                    {lostAmount.map((amount) => (
+                    {lostAmount.map((amount, idx) => (
                         <MenuItem
-                            key={amount}
+                            key={idx}
                             value={amount}
                         >
                             {amount}
